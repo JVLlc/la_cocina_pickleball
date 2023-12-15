@@ -2,26 +2,169 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: 'Adieu' !important;
+  background-color: #373737;
 }
+
+.home-element{
+  width: 28%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 4rem;
+}
+
+.home-element.middle-element{
+  padding-top: 12%;
+  width: 22%;
+ 
+  
+}
+
+.home-element.last-element{
+  padding-top: 0;
+  width: 20%;
+ 
+  
+}
+
+.home-element.last-element  .image-no-hover{
+  height: 22rem;
+  object-fit: cover;
+  z-index: 999;
+ 
+  
+}
+
+.home-element.last-element  .image-hover{
+  height: 22rem;
+  object-fit: cover;
+  z-index: 1000;
+ 
+  
+}
+
+.home-element.middle-element  .image-no-hover{
+  height: 25rem;
+  object-fit: cover;
+  
+  
+}
+
+.home-element.middle-element  .image-hover{
+  height: 25rem;
+  object-fit: cover;
+ 
+  
+}
+
+.home-element > h2{
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  margin-left: -1rem;
+  color: #B9B9B9;
+}
+
+.image-home {
+  position: relative;
+}
+
+.image-no-hover{
+  position: absolute;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.image-hover{
+  position: absolute;
+  z-index: 2;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.image-no-hover:hover + .image-hover{
+ opacity: 1;
+ visibility: visible;
+}
+
+.image-hover:hover{
+  opacity: 1;
+  visibility: visible;
+ }
+
+
+
+
+
+ .grafitti1{
+  height: 120vh;
+  position: absolute;
+  z-index: 20;
+  right: 0;
+  object-fit: contain;
+  max-width: 35vw;
+ }
+
+ .grafitti2{
+  position: absolute;
+  z-index: 3;
+ margin-top: 10vw;
+ left: -3vw;
+ width: 100%;
+ }
+
+ .arrow{
+  position: absolute;
+  z-index: 0;
+ margin-top: 10vw;
+ left: 5rem;
+ width: 25rem;
+ bottom: 5rem;
+ opacity: 0.3;
+ }
+
+ .contacto{
+  width: 100vw;
+  height: 100vh;
+  background-color: #373737;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: all 0.5s;
+ }
+
+ button{
+  border: 4px solid white;
+  padding: 0.8rem 1rem;
+  font-size: 1.5rem;
+  color: white;
+  text-transform: uppercase;
+  border-radius: 100vw;
+  transition: all 0.5s;
+ }
+
+button:hover,
+button:focus {
+  color: #373737;
+   box-shadow: 
+     inset 0 -1.5em 0 0 white,
+     inset 0 1.5em 0 0 white;  
+ }
+
+ .contacto h1{
+  font-size: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 5rem;
+ }
+
+
+ .contacto:has(button:hover){
+  background-color: #FCCE0A;
+ }
