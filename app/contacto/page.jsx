@@ -1,40 +1,36 @@
-"use client"
-import React, {useState} from "react";
+"use client";
+import React, { useState } from "react";
 import styles from "./contacto.module.css";
 
 export default function Contacto() {
-    const [name,setName]=useState("")
-    const [email,setEmail]=useState("")
-    const [message, setMessage]=useState("")
-    const [nameError, setNameError] = useState("");
-    const [emailError, setEmailError] = useState("");
-    const [messageError, setMessageError] = useState("");
-    
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [nameError, setNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [messageError, setMessageError] = useState("");
 
-    const isFormValid = name.trim() !== "" && email.trim() !== "" && message.trim() !== "";
+  const isFormValid =
+    name.trim() !== "" && email.trim() !== "" && message.trim() !== "";
 
-    const handleSubmit = (e) => {
-      e.preventDefault();
-  
-      // Perform email validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        setEmailError("Please enter a valid email address");
-        return;
-      }
-  
-      // Reset email error if valid
-      setEmailError("");
-  
-      // Perform form validation
-      if (name.trim() === "" || email.trim() === "" || message.trim() === "") {
-        // Display an error message or handle invalid form
-        return;
-      }
-  
-      // Form is valid, proceed with submitting the form
-      console.log("Form submitted");
-    };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setEmailError("Please enter a valid email address");
+      return;
+    }
+
+    setEmailError("");
+
+    if (name.trim() === "" || email.trim() === "" || message.trim() === "") {
+      return;
+    }
+
+    console.log("Form submitted");
+  };
+
   return (
     <div className={styles.main}>
       <h1>
@@ -53,7 +49,9 @@ export default function Contacto() {
                     name="name"
                     id="name"
                     value={name}
-                    onChange={(e)=>{setName(e.target.value)}}
+                    onChange={(e) => {
+                      setName(e.target.value);
+                    }}
                     placeholder="Nombre"
                     autoComplete="given-name"
                     className={`${styles.input} py-1.5`}
@@ -69,7 +67,9 @@ export default function Contacto() {
                     name="email"
                     id="email"
                     value={email}
-                    onChange={(e)=>{setEmail(e.target.value)}}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
                     placeholder="Email"
                     autoComplete="email"
                     className={`${styles.input} py-1.5`}
@@ -85,7 +85,9 @@ export default function Contacto() {
                     name="message"
                     placeholder="Mensaje"
                     value={message}
-                    onChange={(e)=>{setMessage(e.target.value)}}
+                    onChange={(e) => {
+                      setMessage(e.target.value);
+                    }}
                     id="message"
                     className={`${styles.input} py-1.5 resize-none h-[15rem]`}
                     required
@@ -99,12 +101,12 @@ export default function Contacto() {
         <div className="mt-6 flex items-center justify-center">
           <button
             type="button"
-       disabled={!isFormValid}
-       className={!isFormValid ? "disabledButton" : ""}
+            disabled={!isFormValid}
+            className={!isFormValid ? "disabledButton" : ""}
+            onClick={handleSubmit}
           >
             Enviar
           </button>
-       
         </div>
       </form>
     </div>
