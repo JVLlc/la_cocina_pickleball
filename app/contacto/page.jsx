@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import styles from "./contacto.module.css";
+import Footer from "@/components/Footer";
 
 export default function Contacto() {
   const [name, setName] = useState("");
@@ -109,6 +110,7 @@ export default function Contacto() {
           </button>
         </div>
       </form>
+      <Footer/>
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import Footer from "./Footer";
 
 
 export function ContactUs() {
@@ -12,6 +13,7 @@ export function ContactUs() {
       aliados.
     </h1>
     <button>Contactanos</button>
+    <Footer/>
   </div>
   );
 }

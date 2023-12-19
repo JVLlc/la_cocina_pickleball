@@ -5,10 +5,12 @@ import { ReactLenis, useLenis } from "@studio-freight/react-lenis";
 import { Parallax } from "@/components/Parallax";
 import { ContactUs } from "@/components/ContactUs";
 import { HomeCard } from "@/components/HomeCard";
+import Menu from "@/components/Menu";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col">
+      <Menu/>
       <ReactLenis root options={{ lerp: 0.1 }}>
         <div className="h-screen relative">
           <img className="grafitti1" src="./images/grafitti1.png" />
@@ -56,6 +58,7 @@ export default function Home() {
 
       <ContactUs />
       </ReactLenis>
+      
     </main>
   );
 }
