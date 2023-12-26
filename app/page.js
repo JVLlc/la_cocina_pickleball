@@ -5,6 +5,7 @@ import { ReactLenis, useLenis } from "@studio-freight/react-lenis";
 import { Parallax } from "@/components/Parallax";
 import { ContactUs } from "@/components/ContactUs";
 import { HomeCard } from "@/components/HomeCard";
+import AlianceCarousel from "@/components/carousel/Carousel";
 
 export default function Home() {
   return (
@@ -53,7 +54,7 @@ export default function Home() {
             </Parallax>
           </div>
         </div>
-
+      <AlianceCarousel />
       <ContactUs />
       </ReactLenis>
     </main>

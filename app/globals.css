@@ -181,3 +181,17 @@ button.disabledButton:focus {
   background-color: #FCCE0A;
   
  }
+
+ .alliance h1{
+  font-size: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 5rem;
+ }
+
+ .container-carousel img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+ }
