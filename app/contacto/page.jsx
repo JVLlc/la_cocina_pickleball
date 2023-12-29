@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import styles from "./contacto.module.css";
 import Footer from "@/components/Footer";
+import Menu from "@/components/Menu";
 
 export default function Contacto() {
   const [name, setName] = useState("");
@@ -34,11 +35,12 @@ export default function Contacto() {
 
   return (
     <div className={styles.main}>
-      <h1>
+      <Menu/>
+      <h1 className={styles.h1}>
         RELLENE EL FORMULARIO O ENVÍE UN
         <br /> CORREO ELECTRÓNICO A
       </h1>
-      <h2>INFO@CO.PICKLEBALL</h2>
+      <h2 className={styles.h2}>INFO@CO.PICKLEBALL</h2>
       <form>
         <div className="space-y-12">
           <div className="border-b border-gray-900/10 pb-12">

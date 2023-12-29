@@ -28,3 +28,15 @@
 .footer .navItem:hover{
     color: white;
 }
+
+@media  (max-width: 500px){
+    .navigation{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+    }
+    .footer{
+        align-items: flex-start;
+        bottom: -18vh;
+    }
+}

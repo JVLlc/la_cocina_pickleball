@@ -6,34 +6,19 @@ import { Parallax } from "@/components/Parallax";
 import { ContactUs } from "@/components/ContactUs";
 import { HomeCard } from "@/components/HomeCard";
 import Menu from "@/components/Menu";
+import ScrollSection from "@/components/HorizontalScroll";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col">
       <Menu/>
-      <ReactLenis root options={{ lerp: 0.1 }}>
-        <div className="h-screen relative">
-          <img className="grafitti1" src="./images/grafitti1.png" />
-          <img className="arrow" src="./images/arrow-down.png" />
-          <img
-            src="./logo.png"
-            alt="La Cocina Pickleball Logo"
-            className="w-1/2 md:w-auto lg:w-auto max-w-sm md:max-w-full lg:max-w-full h-auto absolute top-5 left-5"
-          />
-
-          <div className="flex flex-row w-10/12 h-2/3 absolute top-48 right-0 justify-between">
+   
+      <ScrollSection/>
     
-            <HomeCard position={'first'} image={"./images/1.jpg"} imageHover={"./images/2.jpg"} title={"Eventos"}/>
-            <HomeCard position={'middle'} image={"./images/4.jpg"} imageHover={"./images/3.jpg"} title={"Catalogo"}/>
-            <HomeCard position={'last'} image={"./images/4.jpg"} imageHover={"./images/3.jpg"} title={"Sobre Nosotros"}/>
-          </div>
-          <h1 className="text-sm md:text-base lg:text-lg text-gray-400 absolute bottom-0 left-5">
-            LA CASA DEL PICKLEBALL EN ESPAÑOL
-          </h1>
-        </div>
+      <ReactLenis root options={{ lerp: 0.1 }}>
 
-        <div className="min-h-screen relative">
-          <div className="flex flex-row w-9/12 h-2/3 absolute top-38 right-0 justify-between pr-5">
+        <div className="min-h-screen relative mobile-section" >
+          <div className="flex flex-row w-9/12 h-2/3 absolute top-38 right-0 justify-between pr-5 section-2">
             <div className="w-11/12 object-cover ">
               <Parallax speed={1} className="self-start object-cover">
                 <img
@@ -43,7 +28,7 @@ export default function Home() {
               </Parallax>
             </div>
             <Parallax speed={-2} className="self-end ">
-              <p className="uppercase text-gray-400 ml-14 mt-32 text-sm md:text-base lg:text-lg ">
+              <p className="uppercase text-gray-400 ml-14 mt-32 text-sm md:text-base lg:text-lg section-2-content">
                 La casa del pickleball en español que busca promover el deporte
                 a todas las comunidades de habla hispana en el mundo,
                 enfocándonos primordialmente en Latinoamérica. Llegó el momento

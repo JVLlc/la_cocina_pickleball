@@ -68,6 +68,7 @@
     font-size: 4rem;
     opacity: 1;
     transition: all 0.5s;
+    text-align: center;
 }
 
 .menuContainerClose > h2{
@@ -75,8 +76,11 @@
     opacity: 0;
     font-size: 0;
     transition: all 0.5s;
+    text-align: center;
     
 }
+
+
 
 
 
@@ -128,3 +132,9 @@
     opacity: 0.7;
   }
 
+
+  @media  (max-width: 500px){
+    .menuContainerOpen > h2{
+        font-size: 3rem;
+    }
+}
