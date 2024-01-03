@@ -1,0 +1,14 @@
+.carousel-container {
+    justify-content: space-between; /* Ajusta el espacio entre los elementos */
+}
+.carousel-text, .carousel-wrapper {
+    flex: 1; /* Asegura que ambos elementos tomen el mismo espacio */
+}
+
+.carousel-container .carousel-text h1{
+    font-size: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 5rem;
+}

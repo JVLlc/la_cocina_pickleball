@@ -15,7 +15,7 @@ export default function Contacto() {
   const isFormValid =
     name.trim() !== "" && email.trim() !== "" && message.trim() !== "";
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -29,8 +29,15 @@ export default function Contacto() {
     if (name.trim() === "" || email.trim() === "" || message.trim() === "") {
       return;
     }
-
-    console.log("Form submitted");
+  
+    const res = await fetch("/api/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, message }),
+    });
+    const data = await res.json();
   };
 
   return (

@@ -1,13 +1,13 @@
 import Footer from "./Footer";
 
 
-export function ContactUs() {
+export function ContactUs({color}) {
 
 
 
 
   return (
-    <div className="contacto">
+    <div className={`contacto ${color}`}>
     <h1>
       ¿Quieres llevar el Pickleball a tu país? Seremos tus mejores
       aliados.

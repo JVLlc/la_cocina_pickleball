@@ -7,6 +7,7 @@ import { ContactUs } from "@/components/ContactUs";
 import { HomeCard } from "@/components/HomeCard";
 import Menu from "@/components/Menu";
 import ScrollSection from "@/components/HorizontalScroll";
+import AlianceCarousel from "@/components/carousel/Carousel";
 
 export default function Home() {
   return (
@@ -40,7 +41,7 @@ export default function Home() {
             </Parallax>
           </div>
         </div>
-
+      <AlianceCarousel />
       <ContactUs />
       </ReactLenis>
       
