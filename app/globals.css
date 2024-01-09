@@ -210,6 +210,11 @@ button.disabledButton:focus {
   
  }
 
+ .contacto.pink:has(button:hover){
+  background-color: #DA1B59;
+  
+ }
+
 
 
 

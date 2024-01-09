@@ -9,7 +9,9 @@ import Menu from "@/components/Menu";
 import ScrollSection from "@/components/HorizontalScroll";
 import AlianceCarousel from "@/components/carousel/Carousel";
 
+
 export default function Home() {
+
   return (
     <main className="flex min-h-screen flex-col">
       <Menu/>

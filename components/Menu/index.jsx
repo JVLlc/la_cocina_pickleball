@@ -1,9 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import styles from "./menu.module.css";
+import { useRouter } from "next/navigation";
 
 export default function Menu() {
     const [open,setOpen]=useState(false)
+    const router =useRouter()
 
   return (
     <>
@@ -15,10 +17,10 @@ export default function Menu() {
 
 
 <div className={open ? `${styles.menuContainer} ${styles.menuContainerOpen}`: `${styles.menuContainer} ${styles.menuContainerClose}`}>
-    <h2 className={styles.aboutUs} >Sobre Nosotros</h2>
-    <h2 className={styles.events} >Eventos</h2>
-    <h2 className={styles.catalogue} >Catalogo</h2>
-    <h2 className={styles.contact} >Contacto</h2>
+    <h2 className={styles.aboutUs} onClick={()=>{router.push('/sobre-nosotros')}} >Sobre Nosotros</h2>
+    <h2 className={styles.events} onClick={()=>{router.push('/eventos')}}>Eventos</h2>
+    <h2 className={styles.catalogue} onClick={()=>{router.push('/catalogo')}}>Catalogo</h2>
+    <h2 className={styles.contact} onClick={()=>{router.push('/contacto')}}>Contacto</h2>
 
 </div>
     </>
