@@ -1,0 +1,260 @@
+.main{
+   
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.firstImageContainer img:first-of-type{
+    width: 20vw;
+    height: 12vw;
+    object-fit: cover;
+   
+}
+
+.firstImageContainer img:nth-child(2){
+    width: 20vw;
+    height: 25vw;
+    object-fit: cover;
+    margin-left: 12vw;
+    margin-top: 2rem;
+   
+}
+
+.secondImageContainer{
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+}
+
+.secondImageContainer img:first-of-type{
+    width: 30vw;
+    height: 20vw;
+    object-fit: cover;
+  
+   
+}
+
+.secondImageContainer img:nth-child(2){
+    width: 25vw;
+    height: 40vw;
+    object-fit: cover;
+    margin-left: 15vw;
+    margin-top: 1rem;
+   
+}
+
+.main > div:nth-of-type(3) img{
+    width: 30vw;
+    height: 45vw;
+    object-fit: cover;
+   
+}
+
+.main > div:nth-of-type(4) img{
+    width: 30vw;
+    height: 15vw;
+    object-fit: cover;
+   
+}
+
+
+.content{
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    
+}
+
+.headerPage {
+    line-height: 1.5;
+    margin-left: 10rem;
+    font-size: 4rem;
+    color: white;
+    transition: all 0.5s;
+   
+}
+
+.contentText{
+    width: 70%;
+    margin-top: 2rem;
+    margin-left: 14rem;
+}
+
+.contentText2{
+    width: 70%;
+    margin-top: 5rem;
+    margin-left: 2rem;
+}
+
+.grafittiSmall{
+    width: 70%;
+
+    margin-left: 18rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+.grafittiSmall > img{
+    transform: rotate(-36deg);
+    width: 25vw;
+}
+
+.playersSection{
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.grafitti{
+    margin-left: -8%;
+    margin-top: -25%;
+    height: 300vh;
+    pointer-events: 'none';
+    position: absolute;
+    z-index: 0;
+    transform: rotate(-13deg);
+
+}
+
+.playerLeft{
+    margin-top: 5rem;
+    margin-left: 2rem;
+    width: 100vw;
+}
+
+.playerLeft img{
+    width: 40vw;
+    height: 40vw;
+    
+}
+
+.playerLeft2{
+    margin-top: 5rem;
+    margin-left: 2rem;
+    width: 30vw;
+    margin-top: 40vw;
+}
+
+.playerLeft2 img{
+    width: 30vw;
+    height: 40vw;
+    
+}
+
+.playerRight{
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-end;
+     align-items: flex-end;
+     align-self: flex-end;
+     width: 50vw;
+     float: right;
+     margin-right: 2rem;
+     margin-top: 5rem;
+}
+
+.playerRight img{
+    width: 60vw;
+    height: 40vw;
+}
+
+@media  (max-width: 500px){
+
+    .headerPage{
+        font-size: 3rem;
+        margin-left: 2rem;
+    }
+
+    .contentText{
+        margin-left: 4rem;
+        width: 80%;
+    }
+
+    .contentText2{
+        width: 85%;
+    }
+
+    .playerLeft img{
+        width: 80vw;
+        height: 80vw;
+    }
+
+    .playerLeft{
+        width: calc(100vw - 3rem);
+    }
+
+    .playerRight{
+        width: calc(100vw - 3rem); 
+    }
+
+    .playerRight .imageRight{
+        width: 100%;
+        display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+
+    .playerRight img{
+        width: 70vw;
+        height: 60vh;
+    }
+
+    .playerLeft2{
+        width: 100vw;
+    }
+
+    .playerLeft2 img{
+        width: 60vw;
+        height: 50vh;
+    }
+
+    .grafittiSmall img{
+width: 80vw;
+    }
+
+    .grafittiSmall{
+        margin-left: 0;
+        width: 110%;
+        margin-top: 1rem;
+    }
+
+    .grafitti{
+        margin-left: 0;
+        object-fit: cover;
+        transform: rotate(0deg);
+        margin-top: -100%;
+    }
+
+    .firstImageContainer img:first-of-type{
+        width: 50vw;
+        height: 30vw;
+    }
+
+    .firstImageContainer img:nth-of-type(2){
+        width: 40vw;
+        height: 50vw;
+    }
+
+    .secondImageContainer img:first-of-type{
+        width: 50vw;
+        height: 30vw;
+    }
+
+    .secondImageContainer img:nth-of-type(2){
+        width: 40vw;
+        height: 50vw;
+    }
+    .main > div:nth-of-type(3) img{
+        width: 70vw;
+        height: 60vh;
+    }
+
+    .main > div:nth-of-type(4) img{
+        width: 80vw;
+        height: 50vw;
+    }
+}

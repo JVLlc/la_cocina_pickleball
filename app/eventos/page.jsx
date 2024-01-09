@@ -20,7 +20,7 @@ import PREvent1 from "@/public/images/pr-event/pr-event-1.png"
 import Menu from "@/components/Menu";
  
 
-export default function Contacto() {
+export default function Eventos() {
   const [name, setName] = useState("DUPR");
   const event=useRef(null)
 

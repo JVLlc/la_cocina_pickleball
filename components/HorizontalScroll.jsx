@@ -4,10 +4,10 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { HomeCard } from "./HomeCard";
 
 
+
 function ScrollSection() {
   const sectionRef = useRef(null);
   const triggerRef = useRef(null);
-
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
@@ -59,14 +59,14 @@ function ScrollSection() {
         <div ref={sectionRef} className="scroll-section-inner">
     
           <div className="scroll-section">
-          <HomeCard position={'first'} image={"./images/1.jpg"} imageHover={"./images/2.jpg"} title={"Eventos"}/>
+          <HomeCard route={'/eventos'} position={'first'} image={"./images/1.jpg"} imageHover={"./images/2.jpg"} title={"Eventos"}/>
           </div>
           <div className="scroll-section">
-          <HomeCard position={'middle'} image={"./images/4.jpg"} imageHover={"./images/3.jpg"} title={"Catalogo"}/>
+          <HomeCard route={'/catalogo'} position={'middle'} image={"./images/4.jpg"} imageHover={"./images/3.jpg"} title={"Catalogo"}/>
           </div>
           <div className="scroll-section">
          
-  <HomeCard position={'last'} image={"./images/4.jpg"} imageHover={"./images/3.jpg"} title={"Sobre Nosotros"}/>
+  <HomeCard position={'last'} route={'/sobre-nosotros'} image={"./images/4.jpg"} imageHover={"./images/3.jpg"} title={"Sobre Nosotros"}/>
           </div>
      
         </div>
