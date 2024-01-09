@@ -3,11 +3,11 @@ import Footer from "./Footer";
 
 import Link from "next/link";
 
-export function ContactUs({ color, zIndex }) {
+export function ContactUs({ color, title,zIndex }) {
   return (
-    <div className={`contacto ${color}`}>
+    <div id="footer" className={`contacto ${color}`}>
       <h1>
-        ¿Quieres llevar el Pickleball a tu país? Seremos tus mejores aliados.
+        {title ?? "¿Quieres llevar el Pickleball a tu país? Seremos tus mejores aliados."}
       </h1>
       <Link href="/contacto">
           <button>Contactanos</button>
