@@ -34,7 +34,7 @@ export default function Contacto() {
     }
   
     try {
-      const data = await fetch("/api/sesnd", {
+      const data = await fetch("/api/send", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
