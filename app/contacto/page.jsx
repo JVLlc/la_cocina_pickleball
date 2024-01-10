@@ -53,6 +53,9 @@ export default function Contacto() {
         progress: undefined,
         theme: "dark",
         });
+        setEmail("")
+        setName("")
+        setMessage("")
       } else {
         toast.error('Error: vuelve a intentar!', {
           position: "top-right",
