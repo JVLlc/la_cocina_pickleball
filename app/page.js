@@ -1,4 +1,5 @@
 "use client";
+import React,{useState,useEffect} from "react";
 import Image from "next/image";
 import "./fonts.css";
 import { ReactLenis, useLenis } from "@studio-freight/react-lenis";
@@ -11,10 +12,42 @@ import AlianceCarousel from "@/components/carousel/Carousel";
 
 
 export default function Home() {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const handleImageLoad = () => {
+    console.log('jnhbgftghjkmlddd')
+  const images = document.querySelectorAll('img');
+  const allImagesLoaded = Array.from(images).every((image) => image.complete);
+
+  if (allImagesLoaded) {
+    setImagesLoaded(true);
+  }
+};
+useEffect(() => {
+
+
+const images = document.querySelectorAll('img');
+
+images.forEach((image) => {
+    const allImagesLoaded = Array.from(images).every((image) => image.complete);
+
+    if (allImagesLoaded) {
+      setImagesLoaded(true);
+    }
+  image.addEventListener('load', handleImageLoad);
+});
+
+
+
+
+}, []); // Run this effect only once, when the component mounts
 
   return (
+    <>
+           {/* <div className={!imagesLoaded ? "imageLoader" :"imageLoader notVisible"}>  <img className="spinner" src="/logo.webp"/>
+      
+      </div> */}
     <main className="flex min-h-screen flex-col">
-      <Menu/>
+      <Menu logo={true}/>
    
       <ScrollSection/>
     
@@ -25,20 +58,14 @@ export default function Home() {
             <div className="w-11/12 object-cover ">
               <Parallax speed={1} className="self-start object-cover">
                 <img
-                  src="./images/5.jpg"
+                  src="./images/5.webp"
                   className="object-cover min-w-full h-[70vh]"
                 />
               </Parallax>
             </div>
             <Parallax speed={-2} className="self-end ">
               <p className="uppercase text-gray-400 ml-14 mt-32 text-sm md:text-base lg:text-lg section-2-content">
-                La casa del pickleball en español que busca promover el deporte
-                a todas las comunidades de habla hispana en el mundo,
-                enfocándonos primordialmente en Latinoamérica. Llegó el momento
-                de marcar la diferencia en el mundo de este emocionante deporte
-                y llevar nuestras comunidades deportivas al siguiente nivel. Un
-                deporte que une diversión y actividad física para todas las
-                edades. Fácil de aprender y perfecto para construir conexiones.
+              La casa del pickleball en español que busca promover el deporte a todas las comunidades de habla hispana en el mundo, enfocándonos primordialmente en Latinoamérica. Llegó el momento de marcar la diferencia en el mundo de este emocionante deporte y llevar nuestras comunidades deportivas al siguiente nivel. Un deporte que une diversión y actividad física para todas las edades. Fácil de aprender y perfecto para construir conexiones.
               </p>
             </Parallax>
           </div>
@@ -48,5 +75,6 @@ export default function Home() {
       </ReactLenis>
       
     </main>
+    </>
   );
 }

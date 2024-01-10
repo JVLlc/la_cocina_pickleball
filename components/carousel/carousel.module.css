@@ -12,3 +12,15 @@
   color: white;
   margin-bottom: 5rem;
 }
+
+.img{
+   
+    opacity: 0.8;
+    transition: all 0.5s;
+}
+
+
+.img:hover{
+   
+    opacity: 1;
+}

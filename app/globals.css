@@ -195,7 +195,7 @@ button.disabledButton:focus {
   font-size: 3rem;
   text-align: center;
   text-transform: uppercase;
-  color: white;
+  color: white !important;
   margin-bottom: 5rem;
  }
 
@@ -283,7 +283,55 @@ button.disabledButton:focus {
 
  }
 
+ .imageLoader{
+  width: 100vw;
+  height: 100vh;
+  background-color: #373737;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 30000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.5s;
+  animation: spin 5s linear infinite;
+}
 
+.imageLoader.notVisible{
+  visibility: hidden;
+  opacity: 0;
+}
+
+.carousel-container{
+  margin-top: 5rem;
+}
+
+.spinner {
+
+  width: 15rem;
+  height: 15rem;
+object-fit: contain;
+ 
+}
+
+@keyframes spin {
+  25% {
+    background-color:  #FCCE0A; /* Color for the first quarter of the animation */
+  }
+  50% {
+    background-color:  #f39c12; /* Color for the second quarter of the animation */
+  }
+  75% {
+    background-color:#DA1B59; /* Color for the third quarter of the animation */
+  }
+  100% {
+    background-color:  #00b8d2; /* Color for the last quarter of the animation */
+ 
+  }
+}
  @media  (max-width: 500px){
 
   .contacto h1{

@@ -3,12 +3,14 @@ import React, { useState } from "react";
 import styles from "./menu.module.css";
 import { useRouter } from "next/navigation";
 
-export default function Menu() {
+export default function Menu({logo}) {
     const [open,setOpen]=useState(false)
     const router =useRouter()
 
   return (
     <>
+    {!logo &&
+    <img src="/logo.webp" className={styles.logo} onClick={()=>{router.push('/')}}/>}
     <div className={open ? `${styles.menu} ${styles.menuActive}`:styles.menu} onClick={()=>{setOpen(!open)}}>
         <div className={styles.line}></div>
         <div className={styles.line}></div>

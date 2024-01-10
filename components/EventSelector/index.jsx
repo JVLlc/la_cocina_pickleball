@@ -10,13 +10,13 @@ const EventSelector = ({ onPress }) => {
             <div className={styles.eventosRow}>
             
             <button  className={styles.eventoItem}  onClick={ () => onPress("DUPR")}>DUPR NATIONALS</button>
-            <img src='images/miami-event/miami-event-1.png'/>
+            <img  src='images/pr-event/1.webp'/>
             </div>
             <div className={styles.eventosRow}>
             
                 
             <button className={styles.eventoItem} onClick={ () => onPress("MARLINS")}>MIAMI MARLINS PICKLEBALL DAY</button>
-            <img src='images/miami-event/miami-event-1.png'/>
+            <img  src='images/miami-event/miami-event-1.webp'/>
             </div>
 
      

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState,useRef } from "react";
+import React, { useState,useRef,useEffect } from "react";
 import styles from "./eventos.module.css";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import { HomeCard } from "@/components/HomeCard";
@@ -7,16 +7,16 @@ import { Parallax } from "@/components/Parallax";
 import EventSelector from "@/components/EventSelector";
 import { ContactUs } from "@/components/ContactUs";
 import PhotoGallery from "@/components/PhotoGallery/PhotoGallery";
-import MiamiEvent1 from "@/public/images/miami-event/miami-event-1.png"
-import MiamiEvent2 from "@/public/images/miami-event/miami-event-2.png"
-import MiamiEvent3 from "@/public/images/miami-event/miami-event-3.png"
-import MiamiEvent4 from "@/public/images/miami-event/miami-event-4.png"
-import MiamiEvent5 from "@/public/images/miami-event/miami-event-5.png"
-import MiamiEvent6 from "@/public/images/miami-event/miami-event-6.png"
-import MiamiEvent7 from "@/public/images/miami-event/miami-event-7.png"
-import MiamiEvent8 from "@/public/images/miami-event/miami-event-8.png"
-import MiamiEvent9 from "@/public/images/miami-event/miami-event-9.png"
-import PREvent1 from "@/public/images/pr-event/pr-event-1.png"
+import MiamiEvent1 from "@/public/images/miami-event/miami-event-1.webp"
+import MiamiEvent2 from "@/public/images/miami-event/miami-event-2.webp"
+import MiamiEvent3 from "@/public/images/miami-event/miami-event-3.webp"
+import MiamiEvent4 from "@/public/images/miami-event/miami-event-4.webp"
+import MiamiEvent5 from "@/public/images/miami-event/miami-event-5.webp"
+import MiamiEvent6 from "@/public/images/miami-event/miami-event-6.webp"
+import MiamiEvent7 from "@/public/images/miami-event/miami-event-7.webp"
+import MiamiEvent8 from "@/public/images/miami-event/miami-event-8.webp"
+import MiamiEvent9 from "@/public/images/miami-event/miami-event-9.webp"
+import PREvent1 from "@/public/images/pr-event/pr-event-1.webp"
 import Menu from "@/components/Menu";
  
 
@@ -29,9 +29,9 @@ export default function Eventos() {
   const data = {
     "DUPR": {
       name: "Los DUPR Nationals / Diciembre 2023",
-      text: "Son un circuito alrededor de los países hispanohablantes que busca profesionalizar el deporte fuera de los Estados Unidos, brindando una experiencia única para jugadores amateur y profesionales por igual.\n A su vez, Dynamic Universal Pickleball Rating (DUPR), es el sistema de clasificación más preciso y único a nivel global en el Pickleball. Todos los jugadores, sin importar su edad, género, ubicación o habilidad, son clasificados en la misma escala entre 2.0 y 8.0 basado en sus resultados de partidos.\n\nPuerto Rico: Fue un emocionante encuentro de 4 días llenos de profesionalismo, diversión y deporte.  Con más de 200 participantes, jugaron 15 categorías desde principiantes hasta profesionales que impulsaron su deporte al siguiente nivel. Un torneo que marcó un antes y un después en el Pickleball en Puerto Rico.",
+      text: "Son un circuito alrededor de los países hispanohablantes que busca profesionalizar el deporte fuera de los Estados Unidos, brindando una experiencia única para jugadores amateur y profesionales por igual. A su vez, Dynamic Universal Pickleball Rating (DUPR), es el sistema de clasificación más preciso y único a nivel global en el Pickleball. Todos los jugadores, sin importar su edad, género, ubicación o habilidad, son clasificados en la misma escala entre 2.0 y 8.0 basado en sus resultados de partidos. Puerto Rico: Fue un emocionante encuentro de 4 días llenos de profesionalismo, diversión y deporte.  Con más de 200 participantes, jugaron 15 categorías desde principiantes hasta profesionales que impulsaron su deporte al siguiente nivel. Un torneo que marcó un antes y un después en el Pickleball en Puerto Rico.",
       photos: [{ source: MiamiEvent1.src, URL: '' },{ source: MiamiEvent2.src, URL: '' },{ source: MiamiEvent3.src, URL: 'https://mydupr.com/' },{ source: MiamiEvent4.src, URL: '' },{ source: MiamiEvent5.src, URL: '' },{ source: MiamiEvent6.src, URL: '' },{ source: MiamiEvent7.src, URL: '' },{ source: MiamiEvent8.src, URL: '' },{ source: MiamiEvent9.src, URL: '' },],
-      banner: "https://www.elnuevodia.com/resizer/izy_o6a1j9pzA1PgcnCGHaaf0Yo=/1658x0/filters:quality(75):format(jpeg):focal(485x520:495x510)/cloudfront-us-east-1.images.arcpublishing.com/gfrmedia/GW5DGAGJXRAEDEWUUJPW2TWEJQ.jpg"
+      banner: "/images/pr-event/1.webp"
     },
     "MARLINS": {
       name: "MIAMI MARLINS PICKLEBALL DAY",
@@ -49,8 +49,39 @@ export default function Eventos() {
 
   console.log(data[name]);
 
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const handleImageLoad = () => {
+    console.log('jnhbgftghjkmlddd')
+  const images = document.querySelectorAll('img');
+  const allImagesLoaded = Array.from(images).every((image) => image.complete);
+
+  if (allImagesLoaded) {
+    setImagesLoaded(true);
+  }
+};
+useEffect(() => {
+
+
+const images = document.querySelectorAll('img');
+
+images.forEach((image) => {
+    const allImagesLoaded = Array.from(images).every((image) => image.complete);
+
+    if (allImagesLoaded) {
+      setImagesLoaded(true);
+    }
+  image.addEventListener('load', handleImageLoad);
+});
+
+
+
+
+}, []); // Run this effect only once, when the component mounts
   return (
       <ReactLenis root options={{ lerp: 0.1 }}>
+       {/* <div className={!imagesLoaded ? "imageLoader" :"imageLoader notVisible"}>  <img className="spinner" src="/logo.webp"/>
+      
+         </div> */}
         <div className={styles.main}>
         <div className="h-screen relative" >
           <Menu/>
@@ -60,10 +91,10 @@ export default function Eventos() {
           >
             EVENTOS
           </h1>
-          <img className="arrow-header" src="./images/arrow-down.png" />
-                <img 
+          <img onLoad={handleImageLoad} className="arrow-header" src="./images/arrow-down.webp" />
+                <img onLoad={handleImageLoad} 
             className="grafitti-event" 
-            src="./images/grafitti-events.png" 
+            src="./images/grafitti-events.webp" 
           />
 
           <div className={ `flex flex-row w-full h-2/3 absolute ${styles.eventos}`} >
@@ -81,7 +112,7 @@ export default function Eventos() {
           <div className={`flex flex-row w-12/12 h-2/3 absolute top-38 right-0 justify-between pr-5 ${styles.eventoContent}`}>
             <div className={`w-12/12 object-cover ${styles.eventoImage}`}>
               <Parallax speed={1} className="self-start object-cover">
-                <img
+                <img onLoad={handleImageLoad}
                   src={data[name].banner}
                   className="object-cover min-w-full h-[70vh] ml-5"
                 />

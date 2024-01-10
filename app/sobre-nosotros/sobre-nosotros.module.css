@@ -129,6 +129,7 @@
 .playerLeft img{
     width: 40vw;
     height: 40vw;
+    object-fit: cover;
     
 }
 
@@ -142,6 +143,7 @@
 .playerLeft2 img{
     width: 30vw;
     height: 40vw;
+    object-fit: cover;
     
 }
 
@@ -160,6 +162,7 @@
 .playerRight img{
     width: 60vw;
     height: 40vw;
+    object-fit: cover;
 }
 
 @media  (max-width: 500px){

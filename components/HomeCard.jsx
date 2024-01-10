@@ -9,7 +9,7 @@ export function HomeCard({ title, image, imageHover, position,route }) {
         <img className="image-no-hover" src={image} />
         <img className="image-hover" src={imageHover} onClick={()=>{router.push(route)}}/>
         {position == "first" &&
-        <img className="grafitti2" src="./images/grafitti2.png" />}
+        <img className="grafitti2" src="./images/grafitti2.webp" />}
       </div>
     </div>
   );

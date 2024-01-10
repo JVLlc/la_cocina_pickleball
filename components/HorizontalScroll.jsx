@@ -45,10 +45,10 @@ function ScrollSection() {
       the animation should alway be two separated refs */}
    
       <div ref={triggerRef}>
-      <img className="grafitti1" src="./images/grafitti1.png" />
-          <img className="arrow" src="./images/arrow-down.png" />
+      <img className="grafitti1" src="./images/grafitti1.webp" />
+          <img className="arrow" src="./images/arrow-down.webp" />
           <img
-            src="./logo.png"
+            src="./logo.webp"
             alt="La Cocina Pickleball Logo"
             className="w-1/2 md:w-auto lg:w-auto max-w-sm md:max-w-full lg:max-w-full h-auto absolute top-5 left-5"
           />
@@ -59,14 +59,14 @@ function ScrollSection() {
         <div ref={sectionRef} className="scroll-section-inner">
     
           <div className="scroll-section">
-          <HomeCard route={'/eventos'} position={'first'} image={"./images/1.jpg"} imageHover={"./images/2.jpg"} title={"Eventos"}/>
+          <HomeCard route={'/eventos'} position={'first'} image={"./images/1.webp"} imageHover={"./images/2.webp"} title={"Eventos"}/>
           </div>
           <div className="scroll-section">
-          <HomeCard route={'/catalogo'} position={'middle'} image={"./images/4.jpg"} imageHover={"./images/3.jpg"} title={"Catalogo"}/>
+          <HomeCard route={'/catalogo'} position={'middle'} image={"./images/4.webp"} imageHover={"./images/3.webp"} title={"Catalogo"}/>
           </div>
           <div className="scroll-section">
          
-  <HomeCard position={'last'} route={'/sobre-nosotros'} image={"./images/4.jpg"} imageHover={"./images/3.jpg"} title={"Sobre Nosotros"}/>
+  <HomeCard position={'last'} route={'/sobre-nosotros'} image={"./images/6.webp"} imageHover={"./images/7.webp"} title={"Sobre Nosotros"}/>
           </div>
      
         </div>

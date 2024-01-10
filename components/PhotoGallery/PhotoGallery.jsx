@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import './carousel.module.css';
-import ThePickleballHouse from '@/public/images/the-pickleball-house-logo.jpeg';
+import ThePickleballHouse from '@/public/images/the-pickleball-house-logo.webp';
 
 const PhotoGallery = ({ logos }) => {
     const [settings] = useState({

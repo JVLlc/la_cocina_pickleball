@@ -44,9 +44,9 @@ export default function Contacto() {
     <div className={styles.main}>
       <Menu/>
       <h1 className={styles.h1}>
-        RELLENE EL FORMULARIO O ENVÍE UN
-        <br /> CORREO ELECTRÓNICO A
+      RELLENE EL FORMULARIO O ENVÍE UN<br/> CORREO ELECTRÓNICO A
       </h1>
+      
       <h2 className={styles.h2}>INFO@CO.PICKLEBALL</h2>
       <form>
         <div className="space-y-12">

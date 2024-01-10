@@ -7,6 +7,16 @@
     cursor: pointer;
 }
 
+.logo{
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    height: 40px; 
+    z-index: 10001;
+    object-fit: contain;
+    cursor: pointer;
+}
+
 
 
 .menu{
@@ -69,6 +79,7 @@
     opacity: 1;
     transition: all 0.5s;
     text-align: center;
+    cursor: pointer;
 }
 
 .menuContainerClose > h2{
