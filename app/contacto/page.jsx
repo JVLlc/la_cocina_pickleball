@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import styles from "./contacto.module.css";
 import Footer from "@/components/Footer";
 import Menu from "@/components/Menu";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export default function Contacto() {
   const [name, setName] = useState("");
@@ -30,18 +33,64 @@ export default function Contacto() {
       return;
     }
   
-    const res = await fetch("/api/send", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, email, message }),
-    });
-    const data = await res.json();
+    try {
+      const data = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (data.status === 200) {
+        toast.success('Email enviado!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+        setEmail("")
+        setName("")
+        setMessage("")
+      } else {
+        toast.error('Error: vuelve a intentar!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          });
+      }
+      
+    } catch (error) {
+      
+    }
+
+    
+
   };
 
   return (
     <div className={styles.main}>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        />
       <Menu/>
       <h1 className={styles.h1}>
       RELLENE EL FORMULARIO O ENVÍE UN<br/> CORREO ELECTRÓNICO A
@@ -120,6 +169,8 @@ export default function Contacto() {
         </div>
       </form>
       <Footer/>
+      
     </div>
+    
   );
 }

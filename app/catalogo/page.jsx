@@ -3,6 +3,7 @@ import React, { useState,useEffect } from "react";
 import styles from "./catalogo.module.css";
 import Footer from "@/components/Footer";
 import Menu from "@/components/Menu";
+import { ContactUs } from "@/components/ContactUs";
 
 export default function Catalogo() {
     const [imagesLoaded, setImagesLoaded] = useState(false);
