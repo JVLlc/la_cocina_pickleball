@@ -271,6 +271,11 @@
  
    
  }
+
+ .arrowLeft{
+    visibility: visible;
+    opacity: 1;
+ }
  
  .product{
    width: 42vw;

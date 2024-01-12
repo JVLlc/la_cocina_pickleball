@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./productCard.module.css";
+import { Reveal } from "../Reveal";
 
 const ProductCard = ({ product }) => {
   const [margin, setMargin] = useState(0);
@@ -22,6 +23,7 @@ const ProductCard = ({ product }) => {
   
 
   return (
+    <Reveal>
     <div className={styles.product}>
       <div className={styles.productSlider}>
         {product.images.length > 1 && slide>0 && (
@@ -69,6 +71,7 @@ const ProductCard = ({ product }) => {
         <h3>${product.price}</h3>
       </div>
     </div>
+    </Reveal>
   );
 };
 
