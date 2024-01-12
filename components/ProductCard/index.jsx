@@ -28,7 +28,7 @@ const ProductCard = ({ product }) => {
           <div className={styles.arrowLeft}    onClick={() => {
             swipeLeft();
           }}>
-            <img src="/images/chevron.png" />
+            <img src="/images/chevron.webp" />
           </div>
         )}
 
@@ -58,7 +58,7 @@ const ProductCard = ({ product }) => {
               swipeRight();
             }}
           >
-            <img src="/images/chevron.png" />
+            <img src="/images/chevron.webp" />
           </div>
         )}
       </div>

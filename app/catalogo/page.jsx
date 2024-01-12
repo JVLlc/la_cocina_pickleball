@@ -14,8 +14,8 @@ const products=[
     category:"paletas",
     set:4,
     setPrice:160,
-    image:"/images/products/Artboard 1.png",
-    images:["/images/products/Artboard 1.png","/images/products/Artboard 2.png"]
+    image:"/images/products/Artboard 1.webp",
+    images:["/images/products/Artboard 1.webp","/images/products/Artboard 2.webp"]
 },
 {
     name:"Performance Serie",
@@ -24,8 +24,8 @@ const products=[
     category:"paletas",
     set:0,
     setPrice:0,
-    image:"/images/products/Artboard 7.png",
-    images:["/images/products/Artboard 7.png","/images/products/Artboard 16.png","/images/products/Artboard 17.png","/images/products/Artboard 18.png"]
+    image:"/images/products/Artboard 7.webp",
+    images:["/images/products/Artboard 7.webp","/images/products/Artboard 16.webp","/images/products/Artboard 17.webp","/images/products/Artboard 18.webp"]
 },
 {
     name:"Mach 1",
@@ -34,8 +34,8 @@ const products=[
     category:"paletas",
     set:0,
     setPrice:0,
-    image:"/images/products/Artboard 5.png",
-    images:["/images/products/Artboard 5.png"]
+    image:"/images/products/Artboard 5.webp",
+    images:["/images/products/Artboard 5.webp"]
 },
 {
     name:"MAV PRO",
@@ -44,8 +44,8 @@ const products=[
     category:"paletas",
     set:0,
     setPrice:0,
-    image:"/images/products/Artboard 6.png",
-    images:["/images/products/Artboard 6.png"]
+    image:"/images/products/Artboard 6.webp",
+    images:["/images/products/Artboard 6.webp"]
 },
 {
     name:"PXVAMOS",
@@ -54,8 +54,8 @@ const products=[
     category:"paletas",
     set:0,
     setPrice:0,
-    image:"/images/products/Artboard 9.png",
-    images:["/images/products/Artboard 9.png"]
+    image:"/images/products/Artboard 9.webp",
+    images:["/images/products/Artboard 9.webp"]
 },
 {
     name:"MAV PRO E",
@@ -64,8 +64,8 @@ const products=[
     category:"paletas",
     set:0,
     setPrice:0,
-    image:"/images/products/Artboard 8.png",
-    images:["/images/products/Artboard 8.png"]
+    image:"/images/products/Artboard 8.webp",
+    images:["/images/products/Artboard 8.webp"]
 },
 {
     name:"PXVIV",
@@ -74,8 +74,8 @@ const products=[
     category:"paletas",
     set:0,
     setPrice:0,
-    image:"/images/products/Artboard 10.png",
-    images:["/images/products/Artboard 10.png"]
+    image:"/images/products/Artboard 10.webp",
+    images:["/images/products/Artboard 10.webp"]
 },
 {
     name:"Malla",
@@ -84,8 +84,8 @@ const products=[
     category:"mallas",
     set:0,
     setPrice:0,
-    image:"/images/products/Artboard 14.png",
-    images:["/images/products/Artboard 14.png"]
+    image:"/images/products/Artboard 14.webp",
+    images:["/images/products/Artboard 14.webp"]
 },
 {
     name:"Paquete de 4 pelotas",
@@ -94,8 +94,8 @@ const products=[
     category:"pelotas",
     set:0,
     setPrice:0,
-    image:"/images/products/Artboard 4.png",
-    images:["/images/products/Artboard 4.png"]
+    image:"/images/products/Artboard 4.webp",
+    images:["/images/products/Artboard 4.webp"]
 },
 {
     name:"Pelota Individual",
@@ -104,8 +104,8 @@ const products=[
     category:"pelotas",
     set:0,
     setPrice:0,
-    image:"/images/products/Artboard 4.png",
-    images:["/images/products/Artboard 4.png"]
+    image:"/images/products/Artboard 4.webp",
+    images:["/images/products/Artboard 4.webp"]
 },
 {
     name:"Grip Individual",
@@ -114,8 +114,8 @@ const products=[
     category:"grips",
     set:0,
     setPrice:0,
-    image:"/images/products/Artboard 13.png",
-    images:["/images/products/Artboard 13.png"]
+    image:"/images/products/Artboard 13.webp",
+    images:["/images/products/Artboard 13.webp"]
 },
 {
     name:"Bolso",
@@ -124,8 +124,8 @@ const products=[
     category:"accesorios",
     set:0,
     setPrice:0,
-    image:"/images/products/Artboard 12.png",
-    images:["/images/products/Artboard 12.png"]
+    image:"/images/products/Artboard 12.webp",
+    images:["/images/products/Artboard 12.webp"]
 },
 {
     name:"Forro de Pala",
@@ -134,8 +134,8 @@ const products=[
     category:"accesorios",
     set:0,
     setPrice:0,
-    image:"/images/products/Artboard 15.png",
-    images:["/images/products/Artboard 15.png"]
+    image:"/images/products/Artboard 15.webp",
+    images:["/images/products/Artboard 15.webp"]
 },
 {
     name:"Gorra",
@@ -144,8 +144,8 @@ const products=[
     category:"accesorios",
     set:0,
     setPrice:0,
-    image:"/images/products/Artboard 3.png",
-    images:["/images/products/Artboard 3.png"]
+    image:"/images/products/Artboard 3.webp",
+    images:["/images/products/Artboard 3.webp"]
 },
 {
     name:"Visera",
@@ -154,8 +154,8 @@ const products=[
     category:"accesorios",
     set:0,
     setPrice:0,
-    image:"/images/products/Artboard 11.png",
-    images:["/images/products/Artboard 11.png"]
+    image:"/images/products/Artboard 11.webp",
+    images:["/images/products/Artboard 11.webp"]
 },
 ]
 
