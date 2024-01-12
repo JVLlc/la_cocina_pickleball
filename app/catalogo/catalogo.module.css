@@ -60,6 +60,7 @@
    color: #B9B9B9;
 }
 
+
 .input:focus{
    transition: all 1s;
    border-bottom: 2px solid white; 
@@ -76,7 +77,7 @@
 }
 
 .productContainer{
-  width: 75vw;
+  width: 100vw;
 
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -110,13 +111,97 @@ cursor: pointer;
 
 }
 
-.product img{
+.productSlider{
   height: 65%;
+  width: 100%;
+  transition: all 0.5s;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.productSlide{
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+justify-content: center;
+align-items: center;
+}
+.product img{
+  height: 100%;
+  transition: all 0.5s;
+  object-fit: contain;
+}
+
+.product:hover .productSlider{
+  height: 68%;
+}
+
+.product:hover .productSlider:first-child{
+  /* animation: slide 5s linear infinite; */
+}
+
+
+.product:hover .arrowLeft{
+  visibility: visible;
+  opacity: 1;
+}
+.product:hover .arrowRight{
+  visibility: visible;
+  opacity: 1;
+}
+
+.arrowLeft{
+  position: absolute;
+  width: 1.5rem;
+  min-width:1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  left: 0.5rem;
+  visibility: hidden;
+  opacity: 0;
   transition: all 0.5s;
 }
 
-.product:hover img{
-  height: 68%;
+.arrowRight{
+  position: absolute;
+  width: 1.5rem;
+  min-width:1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  right: 0.5rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+
+
+.arrowLeft img{
+transform: rotate(180deg);
+
+  }
+@keyframes slide {
+  25% {
+    margin-left: -100%;
+  }
+  50% {
+    margin-left: -200%;
+  }
+  75% {
+    margin-left: -300%;
+  }
+  100% {
+    margin-left: -400%;
+ 
+  }
 }
 
 .productInfo{
@@ -127,12 +212,16 @@ cursor: pointer;
 }
 
 .product h2{
-  font-size: 1rem;
+  font-size: 0.8rem;
+  color: #D9D9D9;
+}
+.product h4{
+  font-size: 0.8rem;
   color: #D9D9D9;
 }
 
 .product h3{
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: #B9B9B9;
 }
 

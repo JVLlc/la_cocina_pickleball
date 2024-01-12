@@ -4,6 +4,160 @@ import styles from "./catalogo.module.css";
 import Footer from "@/components/Footer";
 import Menu from "@/components/Menu";
 import { ContactUs } from "@/components/ContactUs";
+import ProductCard from "@/components/ProductCard";
+
+const products=[
+    {
+    name:"Paleta La Cocina",
+    brand:"La Cocina",
+    price:45,
+    category:"paletas",
+    set:4,
+    setPrice:160,
+    image:"/images/products/Artboard 1.png",
+    images:["/images/products/Artboard 1.png","/images/products/Artboard 2.png"]
+},
+{
+    name:"Performance Serie",
+    brand:"Holbrook",
+    price:100,
+    category:"paletas",
+    set:0,
+    setPrice:0,
+    image:"/images/products/Artboard 7.png",
+    images:["/images/products/Artboard 7.png","/images/products/Artboard 16.png","/images/products/Artboard 17.png","/images/products/Artboard 18.png"]
+},
+{
+    name:"Mach 1",
+    brand:"Volair",
+    price:160,
+    category:"paletas",
+    set:0,
+    setPrice:0,
+    image:"/images/products/Artboard 5.png",
+    images:["/images/products/Artboard 5.png"]
+},
+{
+    name:"MAV PRO",
+    brand:"Holbrook",
+    price:200,
+    category:"paletas",
+    set:0,
+    setPrice:0,
+    image:"/images/products/Artboard 6.png",
+    images:["/images/products/Artboard 6.png"]
+},
+{
+    name:"PXVAMOS",
+    brand:"PELLO",
+    price:200,
+    category:"paletas",
+    set:0,
+    setPrice:0,
+    image:"/images/products/Artboard 9.png",
+    images:["/images/products/Artboard 9.png"]
+},
+{
+    name:"MAV PRO E",
+    brand:"Holbrook",
+    price:200,
+    category:"paletas",
+    set:0,
+    setPrice:0,
+    image:"/images/products/Artboard 8.png",
+    images:["/images/products/Artboard 8.png"]
+},
+{
+    name:"PXVIV",
+    brand:"PELLO",
+    price:190,
+    category:"paletas",
+    set:0,
+    setPrice:0,
+    image:"/images/products/Artboard 10.png",
+    images:["/images/products/Artboard 10.png"]
+},
+{
+    name:"Malla",
+    brand:"La Cocina",
+    price:140,
+    category:"mallas",
+    set:0,
+    setPrice:0,
+    image:"/images/products/Artboard 14.png",
+    images:["/images/products/Artboard 14.png"]
+},
+{
+    name:"Paquete de 4 pelotas",
+    brand:"La Cocina",
+    price:10,
+    category:"pelotas",
+    set:0,
+    setPrice:0,
+    image:"/images/products/Artboard 4.png",
+    images:["/images/products/Artboard 4.png"]
+},
+{
+    name:"Pelota Individual",
+    brand:"La Cocina",
+    price:3,
+    category:"pelotas",
+    set:0,
+    setPrice:0,
+    image:"/images/products/Artboard 4.png",
+    images:["/images/products/Artboard 4.png"]
+},
+{
+    name:"Grip Individual",
+    brand:"La Cocina",
+    price:2,
+    category:"grips",
+    set:0,
+    setPrice:0,
+    image:"/images/products/Artboard 13.png",
+    images:["/images/products/Artboard 13.png"]
+},
+{
+    name:"Bolso",
+    brand:"La Cocina",
+    price:20,
+    category:"accesorios",
+    set:0,
+    setPrice:0,
+    image:"/images/products/Artboard 12.png",
+    images:["/images/products/Artboard 12.png"]
+},
+{
+    name:"Forro de Pala",
+    brand:"La Cocina",
+    price:10,
+    category:"accesorios",
+    set:0,
+    setPrice:0,
+    image:"/images/products/Artboard 15.png",
+    images:["/images/products/Artboard 15.png"]
+},
+{
+    name:"Gorra",
+    brand:"La Cocina",
+    price:20,
+    category:"accesorios",
+    set:0,
+    setPrice:0,
+    image:"/images/products/Artboard 3.png",
+    images:["/images/products/Artboard 3.png"]
+},
+{
+    name:"Visera",
+    brand:"La Cocina",
+    price:10,
+    category:"accesorios",
+    set:0,
+    setPrice:0,
+    image:"/images/products/Artboard 11.png",
+    images:["/images/products/Artboard 11.png"]
+},
+]
 
 export default function Catalogo() {
     const [imagesLoaded, setImagesLoaded] = useState(false);
@@ -42,74 +196,21 @@ export default function Catalogo() {
       </div> */}
     <div className={styles.main}>
       <Menu/>
-         <div className={styles.filterContainer}>
+         {/* <div className={styles.filterContainer}>
             <h2>Filtros</h2>
-         </div>
+         </div> */}
        <div className={styles.productContainer}>
         <div className={styles.productOptions}>
-        <h4>7 productos</h4>
+        <h4>{products.length} productos</h4>
         <div>
             <h4>Ordenar por popularidad</h4>
         </div>
         </div>
-       
-        <div className={styles.product}>
-            <img src="/images/paddle.webp" onLoad={handleImageLoad}/>
-            <div className={styles.productInfo}>
-                <h2>VOLAIR MATCH 1</h2>
-                <h3>$160</h3>
-            </div>
-
-        </div>
-        <div className={styles.product}>
-            <img src="/images/paddle.webp" onLoad={handleImageLoad}/>
-            <div className={styles.productInfo}>
-                <h2>VOLAIR MATCH 1</h2>
-                <h3>$160</h3>
-            </div>
-
-        </div>
-        <div className={styles.product}>
-            <img src="/images/paddle.webp" onLoad={handleImageLoad}/>
-            <div className={styles.productInfo}>
-                <h2>VOLAIR MATCH 1</h2>
-                <h3>$160</h3>
-            </div>
-
-        </div>
-        <div className={styles.product}>
-            <img src="/images/paddle.webp" onLoad={handleImageLoad}/>
-            <div className={styles.productInfo}>
-                <h2>VOLAIR MATCH 1</h2>
-                <h3>$160</h3>
-            </div>
-
-        </div>
-        <div className={styles.product}>
-            <img src="/images/paddle.webp" onLoad={handleImageLoad}/>
-            <div className={styles.productInfo}>
-                <h2>VOLAIR MATCH 1</h2>
-                <h3>$160</h3>
-            </div>
-
-        </div>
-
-        <div className={styles.product}>
-            <img src="/images/paddle.webp" onLoad={handleImageLoad}/>
-            <div className={styles.productInfo}>
-                <h2>VOLAIR MATCH 1</h2>
-                <h3>$160</h3>
-            </div>
-
-        </div>
-        <div className={styles.product}>
-            <img src="/images/paddle.webp" onLoad={handleImageLoad}/>
-            <div className={styles.productInfo}>
-                <h2>VOLAIR MATCH 1</h2>
-                <h3>$160</h3>
-            </div>
-
-        </div>
+       {products.map((product)=>{
+        return    <ProductCard product={product}/>
+       })}
+     
+  
 
        </div>
 
