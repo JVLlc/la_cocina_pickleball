@@ -96,7 +96,7 @@ export default function Contacto() {
       RELLENE EL FORMULARIO O ENVÍE UN<br/> CORREO ELECTRÓNICO A
       </h1>
       
-      <h2 className={styles.h2}>INFO@CO.PICKLEBALL</h2>
+      <h2 className={styles.h2}>info@deporteslacocina.com</h2>
       <form>
         <div className="space-y-12">
           <div className="border-b border-gray-900/10 pb-12">

@@ -23,6 +23,7 @@
     font-size: 1.1rem;
     color: #B9B9B9;
     transition: all 0.5s;
+    cursor: pointer;
 }
 
 .footer .navItem:hover{
