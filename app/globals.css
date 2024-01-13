@@ -7,6 +7,26 @@ body {
   background-color: #373737;
 }
 
+.rc-slider{
+  padding: 0 !important;
+}
+
+.rc-slider-handle{
+  background-color: #B9B9B9 !important;
+  border-color: white !important;
+  width: 1.2rem !important;
+  opacity: 1 !important;
+  height: 1.2rem !important;
+}
+.rc-slider-handle-dragging.rc-slider-handle-dragging.rc-slider-handle-dragging{
+  box-shadow: 0 0 0 2px white !important;
+}
+.rc-slider-handle:hover{
+  border-color:white !important; 
+}
+.rc-slider-track{
+  background-color: white !important;
+}
 .home-element{
   width: 28vw;
   height: 100%;
