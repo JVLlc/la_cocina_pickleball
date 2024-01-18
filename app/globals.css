@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+main{
+  overflow-x: hidden;
+}
 body {
   font-family: 'Adieu' !important;
   background-color: #373737;

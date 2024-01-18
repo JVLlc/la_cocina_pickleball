@@ -324,7 +324,7 @@ export default function Catalogo() {
           })}
         </div>
 
-        <Footer />
+        <Footer position={true}/>
       </div>
     </>
   );

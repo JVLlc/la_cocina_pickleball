@@ -7,6 +7,7 @@ import Image from "next/image";
 import SmoothScrolling from "@/components/SmoothScroll";
 import { ContactUs } from "@/components/ContactUs";
 import Menu from "@/components/Menu";
+import Footer from "@/components/Footer";
 
 const ImageList = () => {
   const lenis = useLenis(({ scroll }) => {
@@ -315,7 +316,8 @@ images.forEach((image) => {
       </div>
 
       </div>
-      <ContactUs color={'pink'} zIndex={'bottom'}/>
+      <ContactUs color={'pink'} zIndex={'bottom'} footer={true}/>
+      <Footer position={true}/>
       </div>
    
       </Parallax>

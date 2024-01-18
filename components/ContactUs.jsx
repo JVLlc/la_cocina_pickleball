@@ -3,7 +3,7 @@ import Footer from "./Footer";
 
 import Link from "next/link";
 
-export function ContactUs({ color, title,zIndex }) {
+export function ContactUs({ color, title,zIndex,footer }) {
   return (
     <div id="footer" className={`contacto ${color}`}>
       <h1>
@@ -12,7 +12,8 @@ export function ContactUs({ color, title,zIndex }) {
       <Link href="/contacto">
           <button>Contactanos</button>
       </Link>
-      <Footer />
+      {!footer &&
+      <Footer />}
     </div>
   );
 }

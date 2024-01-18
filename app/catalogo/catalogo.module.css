@@ -366,6 +366,8 @@ width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  height: fit-content;
+  overflow: hidden;
   gap: 0;
 
   

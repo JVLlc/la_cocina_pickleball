@@ -18,6 +18,7 @@ import MiamiEvent8 from "@/public/images/miami-event/miami-event-8.webp"
 import MiamiEvent9 from "@/public/images/miami-event/miami-event-9.webp"
 import PREvent1 from "@/public/images/pr-event/pr-event-1.webp"
 import Menu from "@/components/Menu";
+import Footer from "@/components/Footer";
  
 
 export default function Eventos() {
@@ -126,7 +127,8 @@ images.forEach((image) => {
           </div>
         </div>
         <PhotoGallery logos={data[name].photos}/>
-        <ContactUs color={'blue'}/>
+        <ContactUs color={'blue'} zIndex={'bottom'} footer={true}/>
+      <Footer position={true}/>
         </div>
       </ReactLenis>
  
