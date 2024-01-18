@@ -170,15 +170,19 @@ const products = [
 
 export default function Catalogo() {
   const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [filterOpen, setFilterOpen] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState(products);
-  const [selectedCategory,selectCategory]=useState('todo')
-  const [selectedBrands,selectBrands]=useState([])
+  const [selectedCategory, selectCategory] = useState("todo");
+  const [sort, setSort] = useState("default");
+  const [selectedBrands, selectBrands] = useState([]);
   const [rangeSelected, setRangeSelected] = useState([
     Math.min(...products.map((product) => product.price)),
     Math.max(...products.map((product) => product.price)),
   ]);
-  const uniqueCategories = [...new Set(products.map(product => product.category))];
-  const uniqueBrands = [...new Set(products.map(product => product.brand))];
+  const uniqueCategories = [
+    ...new Set(products.map((product) => product.category)),
+  ];
+  const uniqueBrands = [...new Set(products.map((product) => product.brand))];
 
   const handleImageLoad = () => {
     console.log("jnhbgftghjkmlddd");
@@ -207,51 +211,47 @@ export default function Catalogo() {
   const filter = () => {
     let aux = products;
 
-    if(selectedBrands.length > 0){
-        aux=aux.filter((product) => {
-            return (
-              selectedBrands.includes(product.brand)
-            );
-          });
-    
-     
-      };
-
-
-    if(selectedCategory != "todo"){
-    aux=aux.filter((product) => {
-        return (
-          product.category == selectedCategory
-        );
+    if (selectedBrands.length > 0) {
+      aux = aux.filter((product) => {
+        return selectedBrands.includes(product.brand);
       });
+    }
 
- 
+    if (selectedCategory != "todo") {
+      aux = aux.filter((product) => {
+        return product.category == selectedCategory;
+      });
+    }
+
+    aux = aux.filter((product) => {
+      return (
+        product.price >= rangeSelected[0] && product.price <= rangeSelected[1]
+      );
+    });
+
+    if(sort=='menos'){
+      aux.sort((a, b) => a.price - b.price);
+    }else if(sort=='mas'){
+      aux.sort((a, b) => b.price - a.price);
+    }
+
+    setFilteredProducts(aux);
   };
-
-
-  
-
-  aux = aux.filter((product) => {
-    return (
-      product.price >= rangeSelected[0] && product.price <= rangeSelected[1]
-    );
-  });
-
-  setFilteredProducts(aux);
-}
 
   useEffect(() => {
     filter();
-  }, [rangeSelected,selectedCategory,selectedBrands]);
+  }, [rangeSelected, selectedCategory, selectedBrands,sort]);
 
   const handleCheckboxChange = (category) => {
     // Check if the category is already in the list
     if (selectedBrands.includes(category)) {
       // If yes, remove it
-      selectBrands(prevSelected => prevSelected.filter(item => item !== category));
+      selectBrands((prevSelected) =>
+        prevSelected.filter((item) => item !== category)
+      );
     } else {
       // If not, add it
-      selectBrands(prevSelected => [...prevSelected, category]);
+      selectBrands((prevSelected) => [...prevSelected, category]);
     }
   };
   return (
@@ -261,12 +261,29 @@ export default function Catalogo() {
       </div> */}
       <div className={styles.main}>
         <Menu />
-        <div className={styles.filterContainer}>
+        <img src="/images/filter.png" onClick={()=>{setFilterOpen(true)}} className={styles.filter} />
+        <div className={filterOpen ? styles.filterContainer : `${styles.filterContainer} ${styles.close}`}>
+          <img src="/images/close.png" onClick={()=>{setFilterOpen(false)}} className={styles.closeIcon} />
           <h2>Filtros</h2>
           {uniqueCategories.map((category, index) => (
-          <h6 className={selectedCategory==category && styles.active} onClick={()=>{selectCategory(category)}} key={index}>{category}</h6>
-        ))}
-          <h6 className={selectedCategory=="todo" && styles.active}  onClick={()=>{selectCategory('todo')}}>Todo</h6>
+            <h6
+              className={selectedCategory == category && styles.active}
+              onClick={() => {
+                selectCategory(category);
+              }}
+              key={index}
+            >
+              {category}
+            </h6>
+          ))}
+          <h6
+            className={selectedCategory == "todo" && styles.active}
+            onClick={() => {
+              selectCategory("todo");
+            }}
+          >
+            Todo
+          </h6>
 
           <h5>Precio</h5>
           <DoubleRangeSlider
@@ -276,23 +293,30 @@ export default function Catalogo() {
               setRangeSelected(value);
             }}
           />
-            <h5>Marcas</h5>
-                {uniqueBrands.map((brand, index) => (
-           <div class="flex items-center mb-4">
-           <input id={brand} type="checkbox" checked={selectedBrands.includes(brand)}  
-           onChange={()=>{handleCheckboxChange(brand)}}
-           />
-           <h7 for="default-checkbox" >{brand}</h7>
-       </div>
-        ))}
-      
-        
+          <h5>Marcas</h5>
+          {uniqueBrands.map((brand, index) => (
+            <div class="flex items-center mb-4">
+              <input
+                id={brand}
+                type="checkbox"
+                checked={selectedBrands.includes(brand)}
+                onChange={() => {
+                  handleCheckboxChange(brand);
+                }}
+              />
+              <h7 for="default-checkbox">{brand}</h7>
+            </div>
+          ))}
         </div>
         <div className={styles.productContainer}>
           <div className={styles.productOptions}>
             <h4>{products.length} productos</h4>
             <div>
-              <h4>Ordenar por popularidad</h4>
+            <select value={sort} onChange={(e)=>{console.log(e.target.value);setSort(e.target.value)}}>
+              <option value={'default'}>Relevancia (default)</option>
+              <option value={'menos'}>Precio de menos a más</option>
+              <option value={'mas'}>Precio de más a menos</option>
+            </select>
             </div>
           </div>
           {filteredProducts.map((product) => {
