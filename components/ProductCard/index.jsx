@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./productCard.module.css";
 import { Reveal } from "../Reveal";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product,getBrandName }) => {
   const [margin, setMargin] = useState(0);
   const [slide, setSlide] = useState(0);
   const swipeRight = () => {
@@ -67,7 +67,7 @@ const ProductCard = ({ product }) => {
 
       <div className={styles.productInfo}>
         <h2>{product.name}</h2>
-        <h4>{product.brand}</h4>
+        <h4>{getBrandName(product.brand)}</h4>
         <h3>${product.price}</h3>
       </div>
     </div>

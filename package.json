@@ -12,6 +12,7 @@
     "@studio-freight/lenis": "^1.0.29",
     "@studio-freight/react-lenis": "^0.0.38",
     "chart.js": "^4.4.1",
+    "firebase": "^10.7.2",
     "framer-motion": "^10.18.0",
     "gsap": "^3.12.3",
     "locomotive-scroll": "^4.1.4",

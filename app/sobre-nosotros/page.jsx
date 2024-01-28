@@ -232,7 +232,7 @@ images.forEach((image) => {
           sizes="50vw"
           priority
         />
-        <h2 className={`uppercase text-sm mt-5 md:text-base lg:text-lg section-2-content`} style={{color:'white'}}>Jhonnatan Medina Ãlvarez</h2>
+        <h2 className={`uppercase text-sm mt-5 md:text-base lg:text-lg section-2-content`} style={{color:'white'}}>Jhonnatan Medina Álvarez</h2>
         <p className={`uppercase text-gray-400 mt-2 text-sm md:text-base lg:text-lg section-2-content `}>
         Actual jugador clasificado en el Top 3 de individuales en la APP. 5 medallas (1 de oro, 2 de plata y 2 de bronce) en torneos individuales de la temporada 2023 de la APP. Clasificado como el jugador número 1 en Virginia y Venezuela.
           </p>
@@ -290,7 +290,7 @@ images.forEach((image) => {
           height={400}
           sizes="50vw"
         />
-        <h2 className={`uppercase text-sm mt-5 md:text-base lg:text-lg section-2-content`} style={{color:'white'}}>MarÃ­a Lopez</h2>
+        <h2 className={`uppercase text-sm mt-5 md:text-base lg:text-lg section-2-content`} style={{color:'white'}}>María Lopez</h2>
         <p className={`uppercase text-gray-400 mt-2 text-sm md:text-base lg:text-lg section-2-content `}>
         #1 de Venezuela en Tenis y selección nacional en múltiples ocasiones, Top 100 en dobles ITF Juniors de la NCAA, X2 Campeona Nacional de NCAA como entrenadora, entrenadora de jugadora TOP 50 en el ranking del WTA.
           </p>
