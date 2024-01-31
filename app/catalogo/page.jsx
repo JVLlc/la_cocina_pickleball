@@ -258,86 +258,86 @@ export default function Catalogo() {
 
   const fetchProducts = async () => {
     try {
-      let auxProducts=[]
+      let auxProducts = [];
+      let auxBrands = [];
+      let auxCategories = [];
+      let uniqueBrandIds = new Set();
+      let uniqueCategoriesIds = new Set();
+  
       const querySnapshot = await getDocs(collectionGroup(db, 'products'));
   
-      querySnapshot.forEach(async (productDoc) => {
+      for (const productDoc of querySnapshot.docs) {
         let productData = productDoc.data();
         const brandId = productData.brand.id;
         const categoryId = productData.category.id;
-
-       productData.brand=brandId
-       productData.category=categoryId
-
-      auxProducts.push(productData)
-       
-      });
-
-      setProducts1(auxProducts)
-      setFilteredProducts(auxProducts)
+  
+        // Fetch brand and category data
+        const [brandDoc, categoryDoc] = await Promise.all([
+          getDoc(doc(db, 'brands', brandId)),
+          getDoc(doc(db, 'categories', categoryId)),
+        ]);
+  
+        const brandData = brandDoc.data();
+        const categoryData = categoryDoc.data();
+  
+        // Check if the product, brand, and category are available
+        if (
+          productData.available &&
+          brandData.available &&
+          categoryData.available
+        ) {
+          productData.brand=brandId
+          productData.category=categoryId
+          auxProducts.push(productData);
+  
+          // Check if the brand ID is already in the Set
+          if (!uniqueBrandIds.has(brandId)) {
+            auxBrands.push({ ...brandData, id: brandDoc.id });
+            uniqueBrandIds.add(brandId); // Add brand ID to the Set
+          }
+          if (!uniqueCategoriesIds.has(categoryId)) {
+            auxCategories.push({ ...categoryData, id: categoryDoc.id });
+            uniqueCategoriesIds.add(categoryId); // Add brand ID to the Set
+          }
+  
+         
+        }
+      }
+      setUniqueBrands(auxBrands);
+      setUniqueCategories(auxCategories);
+      setProducts1(auxProducts);
+      setFilteredProducts(auxProducts);
       setRangeSelected([
         Math.min(...auxProducts.map((product) => product.price)),
         Math.max(...auxProducts.map((product) => product.price)),
-      ])
+      ]);
+  
+   
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   };
-
-  const fetchBrands = async () => {
-    try {
-      let auxBrands=[]
-      const querySnapshot = await getDocs(collectionGroup(db, 'brands'));
   
-      querySnapshot.forEach(async (brandDoc) => {
-
-        let brandData = brandDoc.data();
-        brandData.id=brandDoc.id
-
   
-
-       auxBrands.push(brandData)
-       
-      });
-
-      setUniqueBrands(auxBrands)
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
-
-  const fetchCategories = async () => {
-    try {
-      let auxCategories=[]
-      const querySnapshot = await getDocs(collectionGroup(db, 'categories'));
   
-      querySnapshot.forEach(async (categoryDoc) => {
-        let categoryData = categoryDoc.data();
-        categoryData.id=categoryDoc.id
-
-  
-
-        auxCategories.push(categoryData)
-       
-      });
-
-      setUniqueCategories(auxCategories)
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
+  const fetch =async()=>{
+    // await fetchBrands();
+    // await fetchCategories();
+    await fetchProducts();
+  }
 
   useEffect(() => {
 
-    fetchBrands();
-    fetchCategories();
-    fetchProducts();
+    fetch()
   
   }, []);
 
-  const getBrandName=(id)=>{
-    return uniqueBrands.filter((brand)=> {return brand.id==id})[0].brand_name
-  }
+  const getBrandName = (id) => {
+    console.log(id,uniqueBrands)
+    const filteredBrands = uniqueBrands.filter((brand) => brand.id === id);
+    return filteredBrands.length > 0 ? filteredBrands[0].brand_name : '';
+  };
+  
 
   const getCategoryName=(id)=>{
     return uniqueCategories.filter((category)=> {return category.id==id})[0].name
@@ -399,6 +399,7 @@ export default function Catalogo() {
           ))}
         </div>
      
+     {uniqueBrands.length >0 && uniqueCategories.length > 0 &&
         <div className={styles.productContainer}>
           <div className={styles.productOptions}>
             <h4>{products1.length} productos</h4>
@@ -414,7 +415,7 @@ export default function Catalogo() {
           {filteredProducts.map((product) => {
             return <ProductCard product={product} getBrandName={getBrandName}  />;
           })}
-        </div>
+        </div>}
 
         <Footer />
       </div>

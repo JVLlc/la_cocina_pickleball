@@ -8,6 +8,8 @@ import SmoothScrolling from "@/components/SmoothScroll";
 import { ContactUs } from "@/components/ContactUs";
 import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
+import { db, storage } from '../../firebase/firebase';
+import { collection, getDocs, doc, getDoc,where, collectionGroup } from "firebase/firestore";
 
 const ImageList = () => {
   const lenis = useLenis(({ scroll }) => {
@@ -17,6 +19,7 @@ const ImageList = () => {
 
   const [opacity, setOpacity] = useState(0.35);
   const [blur, setBlur] = useState(0);
+  const [players, setPlayers] = useState([]);
 
   useEffect(() => {
  // Inside the handleScroll function in Overlay.js
@@ -96,6 +99,40 @@ images.forEach((image) => {
 
 
 }, []); // Run this effect only once, when the component mounts
+
+const fetchPlayers = async () => {
+  try {
+    let auxPlayers=[]
+    const querySnapshot = await getDocs(
+      collection(db, 'players'),
+      where('available', '==', true)
+    );
+
+    querySnapshot.forEach(async (playerDoc) => {
+      let playereData = playerDoc.data();
+      playereData.id=playerDoc.id
+
+
+
+      if(playereData.available){
+        auxPlayers.push(playereData)
+      }
+  
+     
+    });
+
+
+    setPlayers(auxPlayers)
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+};
+
+useEffect(() => {
+
+  fetchPlayers();
+
+}, []);
 
   return (
     <>
@@ -221,10 +258,35 @@ images.forEach((image) => {
         <p className={`uppercase text-gray-400 ml-14 mt-32 text-sm md:text-base lg:text-lg section-2-content ${styles.contentText2}`}>
         Contamos con jugadores de talla profesional dentro del equipo de La Cocina los cuales forman parte de la lista de invitados exclusivos a todos nuestros eventos internacionales.
           </p>
-<div className={styles.playerLeft}>
+
+          {players.map((player,index)=>{
+
+if (index % 2 === 1) {
+  return <div className={styles.playerRight}>
+  <Parallax speed={-2} className="self-end">
+    <div className={styles.imageRight}>
+<Image 
+  src={player.image}
+  alt="Image"
+  width={600}
+  height={400}
+  priority
+  onLoad={handleImageLoad}
+  sizes="50vw"
+/>
+</div>
+<h2 className={`uppercase text-sm mt-5 md:text-base lg:text-lg section-2-content`} style={{color:'white'}}>{player.name}</h2>
+<p className={`uppercase text-gray-400 mt-2 text-sm md:text-base lg:text-lg section-2-content `}>
+{player.description}
+  </p>
+</Parallax>
+</div>
+ 
+} else if (index === 0) {
+ return <div className={styles.playerLeft}>
           <Parallax speed={-1} className="self-start">
         <Image 
-          src={"/images/players/JonathanMedinaÁlvarez-Color.webp"}
+          src={player.image}
           alt="Image"
           onLoad={handleImageLoad}
           width={600}
@@ -232,88 +294,40 @@ images.forEach((image) => {
           sizes="50vw"
           priority
         />
-        <h2 className={`uppercase text-sm mt-5 md:text-base lg:text-lg section-2-content`} style={{color:'white'}}>Jhonnatan Medina Álvarez</h2>
+        <h2 className={`uppercase text-sm mt-5 md:text-base lg:text-lg section-2-content`} style={{color:'white'}}>{player.name}</h2>
         <p className={`uppercase text-gray-400 mt-2 text-sm md:text-base lg:text-lg section-2-content `}>
-        Actual jugador clasificado en el Top 3 de individuales en la APP. 5 medallas (1 de oro, 2 de plata y 2 de bronce) en torneos individuales de la temporada 2023 de la APP. Clasificado como el jugador número 1 en Virginia y Venezuela.
+        {player.description}
           </p>
       </Parallax>
       </div>
-
-      <div className={styles.playerRight}>
-          <Parallax speed={-2} className="self-end">
-            <div className={styles.imageRight}>
-        <Image 
-          src={"/images/players/GlaukaCarvajalLane-Color.webp"}
-          alt="Image"
-          width={600}
-          height={400}
-          priority
-          onLoad={handleImageLoad}
-          sizes="50vw"
-        />
-        </div>
-        <h2 className={`uppercase text-sm mt-5 md:text-base lg:text-lg section-2-content`} style={{color:'white'}}>Glauka Carvajal Lane</h2>
-        <p className={`uppercase text-gray-400 mt-2 text-sm md:text-base lg:text-lg section-2-content `}>
-        Actualmente clasificada en el Top 25 de jugadores individuales de la PPA (Mejor Ranking -22).
-          </p>
-      </Parallax>
-      </div>
-
-      <div className={styles.playerLeft2}>
-          <Parallax speed={-1} className="self-start">
-        <Image 
-          src={"/images/players/JuditCastillo-Color.webp"}
-          alt="Image"
-          width={600}
-          height={400}
-          priority
-          sizes="50vw"
-          onLoad={handleImageLoad}
-        />
-        <h2 className={`uppercase text-sm mt-5 md:text-base lg:text-lg section-2-content`} style={{color:'white'}}>Judit Castillo</h2>
-        <p className={`uppercase text-gray-400 mt-2 text-sm md:text-base lg:text-lg section-2-content `}>
-        Top 5 individuales femeninos de la PPA. 7 medallas (1 de oro, 2 de plata y 4 de bronce)
+  console.log(`Element at index 0: ${element}`);
+} else if (index % 2 === 0) {
+ return <div className={styles.playerLeft2}>
+  <Parallax speed={-1} className="self-start">
+<Image 
+  src={player.image}
+  alt="Image"
+  width={600}
+  height={400}
+  priority
+  sizes="50vw"
+  onLoad={handleImageLoad}
+/>
+<h2 className={`uppercase text-sm mt-5 md:text-base lg:text-lg section-2-content`} style={{color:'white'}}>{player.name}</h2>
+<p className={`uppercase text-gray-400 mt-2 text-sm md:text-base lg:text-lg section-2-content `}>
+{player.description}
 
 
-          </p>
-      </Parallax>
-      </div>
+  </p>
+</Parallax>
+</div>
+}
+          })}
 
-      <div className={styles.playerRight}>
-          <Parallax speed={-2} className="self-end">
-        <Image 
-          src={"/images/players/Marias-Lopez-Color.webp"}
-          alt="Image"
-          width={600}
-          priority
-          onLoad={handleImageLoad}
-          height={400}
-          sizes="50vw"
-        />
-        <h2 className={`uppercase text-sm mt-5 md:text-base lg:text-lg section-2-content`} style={{color:'white'}}>María Lopez</h2>
-        <p className={`uppercase text-gray-400 mt-2 text-sm md:text-base lg:text-lg section-2-content `}>
-        #1 de Venezuela en Tenis y selección nacional en múltiples ocasiones, Top 100 en dobles ITF Juniors de la NCAA, X2 Campeona Nacional de NCAA como entrenadora, entrenadora de jugadora TOP 50 en el ranking del WTA.
-          </p>
-      </Parallax>
-      </div>
 
-      <div className={styles.playerLeft2}>
-          <Parallax speed={-1} className="self-start">
-        <Image 
-          src={"/images/players/EduardoIzarry-Color.webp"}
-          alt="Image"
-          width={600}
-          height={400}
-          priority
-          onLoad={handleImageLoad}
-          sizes="50vw"
-        />
-        <h2 className={`uppercase text-sm mt-5 md:text-base lg:text-lg section-2-content`} style={{color:'white'}}>Eduardo Izarry</h2>
-        <p className={`uppercase text-gray-400 mt-2 text-sm md:text-base lg:text-lg section-2-content `}>
-        Clasificado como el jugador número 1 en Puerto Rico. 1 medalla de bronce y 1 de plata en el 2023
-          </p>
-      </Parallax>
-      </div>
+
+
+
 
       </div>
       <ContactUs color={'pink'} zIndex={'bottom'} footer={true}/>

@@ -48,7 +48,10 @@ const AlianceCarousel = () => {
       const fetchLogos = async () => {
         try {
           let auxCategories=[]
-          const querySnapshot = await getDocs(collectionGroup(db, 'alliances'));
+          const querySnapshot = await getDocs(
+            collection(db, 'alliances'),
+            where('available', '==', true)
+          );
       
           querySnapshot.forEach(async (allianceDoc) => {
             let allianceData = allianceDoc.data();
@@ -56,7 +59,10 @@ const AlianceCarousel = () => {
     
       
     
-            auxCategories.push(allianceData)
+            if(allianceData.available){
+              auxCategories.push(allianceData)
+            }
+        
            
           });
     
