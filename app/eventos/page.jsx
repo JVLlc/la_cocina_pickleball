@@ -2,7 +2,6 @@
 import React, { useState,useRef,useEffect } from "react";
 import styles from "./eventos.module.css";
 import { ReactLenis } from "@studio-freight/react-lenis";
-import { HomeCard } from "@/components/HomeCard";
 import { Parallax } from "@/components/Parallax";
 import EventSelector from "@/components/EventSelector";
 import { ContactUs } from "@/components/ContactUs";
@@ -16,16 +15,50 @@ import MiamiEvent6 from "@/public/images/miami-event/miami-event-6.webp"
 import MiamiEvent7 from "@/public/images/miami-event/miami-event-7.webp"
 import MiamiEvent8 from "@/public/images/miami-event/miami-event-8.webp"
 import MiamiEvent9 from "@/public/images/miami-event/miami-event-9.webp"
-import PREvent1 from "@/public/images/pr-event/pr-event-1.webp"
 import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
+import { db, storage } from '../../firebase/firebase';
+import { collection, getDocs, doc, getDoc,where, collectionGroup } from "firebase/firestore";
  
 
 export default function Eventos() {
-  const [name, setName] = useState("DUPR");
+  const [name, setName] = useState("");
+  const [events, setEvents] = useState([]);
+  const [eventSelected, setEventSelected] = useState([]);
   const event=useRef(null)
 
-  console.log(MiamiEvent7);
+  const fetchPlayers = async () => {
+    try {
+      let auxPlayers=[]
+      const querySnapshot = await getDocs(
+        collection(db, 'events'),
+        where('available', '==', true)
+      );
+  
+      querySnapshot.forEach(async (playerDoc) => {
+        let playerData = playerDoc.data();
+        playerData.id=playerDoc.id
+  
+  
+  
+        if(playerData.available){
+          auxPlayers.push(playerData)
+        }
+    
+       
+      });
+  
+      setEvents(auxPlayers)
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+  
+  useEffect(() => {
+  
+    fetchPlayers();
+  
+  }, []);
   
   const data = {
     "DUPR": {
@@ -42,17 +75,15 @@ export default function Eventos() {
     }
   }
   
-  const changeEvent = (name) => {
-    setName(name);
+  const changeEvent = (event) => {
+    setName(event.name);
+    setEventSelected(event);
     event.current?.scrollIntoView({ behavior: 'smooth' });
 
   }
 
-  console.log(data[name]);
-
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const handleImageLoad = () => {
-    console.log('jnhbgftghjkmlddd')
   const images = document.querySelectorAll('img');
   const allImagesLoaded = Array.from(images).every((image) => image.complete);
 
@@ -99,34 +130,38 @@ images.forEach((image) => {
           />
 
           <div className={ `flex flex-row w-full h-2/3 absolute ${styles.eventos}`} >
-            <EventSelector onPress={changeEvent}/>
+            <EventSelector onPress={changeEvent} events={events}/>
           </div>
           </div>
       
         </div>
         
      
+        {name != "" && (
+        <>
         <div className="min-h-screen relative" ref={event}>
         <h1 className="secondary-header">
-            {data[name].name}
+            {eventSelected.name}
           </h1>
           <div className={`flex flex-row w-12/12 h-2/3 absolute top-38 right-0 justify-between pr-5 ${styles.eventoContent}`}>
             <div className={`w-12/12 object-cover ${styles.eventoImage}`}>
               <Parallax speed={1} className="self-start object-cover">
                 <img onLoad={handleImageLoad}
-                  src={data[name].banner}
+                  src={eventSelected.banner}
                   className="object-cover min-w-full h-[70vh] ml-5"
                 />
               </Parallax>
             </div>
             <Parallax speed={-2} className="self-end ">
               <p className={`uppercase text-gray-400 ml-14 mt-32 text-sm md:text-base lg:text-lg ${styles.eventoContentText} `}>
-                {data[name].text}
+                {eventSelected.description}
               </p>
             </Parallax>
           </div>
         </div>
-        <PhotoGallery logos={data[name].photos}/>
+        <PhotoGallery logos={eventSelected.images}/>
+        </>)
+        }
         <ContactUs color={'blue'} zIndex={'bottom'} footer={true}/>
       <Footer position={true}/>
         </div>

@@ -22,8 +22,8 @@ const PhotoGallery = ({ logos }) => {
                 <Slider {...settings}>
                     {logos.map((logo, index) => (
                         <div key={index} className="container-gallery">
-                            <a href={logo.URL} target="_blank" rel="noopener noreferrer">
-                                <img src={logo.source} alt='logo' />
+                            <a href={logo.URL || ""} target="_blank" rel="noopener noreferrer">
+                                <img src={ logo} alt='logo' />
                             </a>
                         </div>
                     ))}

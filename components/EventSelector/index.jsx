@@ -1,25 +1,19 @@
 import React from 'react';
 import styles from "./eventSelector.module.css";
 
-const EventSelector = ({ onPress }) => {
+const EventSelector = ({ onPress, events }) => {
 
-
+    console.log("VAcila ", events);
 
     return (
         <div style={{ width: "100%" }}>
-            <div className={styles.eventosRow}>
-            
-            <button  className={styles.eventoItem}  onClick={ () => onPress("DUPR")}>DUPR NATIONALS</button>
-            <img  src='images/pr-event/1.webp'/>
-            </div>
-            <div className={styles.eventosRow}>
-            
-                
-            <button className={styles.eventoItem} onClick={ () => onPress("MARLINS")}>MIAMI MARLINS PICKLEBALL DAY</button>
-            <img  src='images/miami-event/miami-event-1.webp'/>
-            </div>
-
-     
+            {events.map((data, index) => (
+                <div className={styles.eventosRow} key={index}>
+                    <button className={styles.eventoItem} onClick={ () => onPress(data)}>{data.name}</button>
+                    <img src={data.banner} />
+                </div>
+            )
+            )}
         </div>
     );
 };
