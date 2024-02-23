@@ -164,7 +164,7 @@ images.forEach((image) => {
             </Parallax>
           </div>
         </div>
-        <PhotoGallery logos={eventSelected.images}/>
+        <PhotoGallery width={window.innerWidth}logos={eventSelected.images}/>
         </>)
         } */}
         <ContactUs color={'blue'} zIndex={'bottom'} footer={true}/>

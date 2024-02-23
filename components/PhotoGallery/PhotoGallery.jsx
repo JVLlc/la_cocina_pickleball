@@ -5,10 +5,10 @@ import "slick-carousel/slick/slick-theme.css";
 import './carousel.module.css';
 import ThePickleballHouse from '@/public/images/the-pickleball-house-logo.webp';
 
-const PhotoGallery = ({ logos }) => {
+const PhotoGallery = ({ logos,width }) => {
     const [settings] = useState({
         infinite: true,
-        slidesToShow: window.innerWidth>500 ? 4: 2 ,
+        slidesToShow: width>500 ? 4: 2 ,
         slidesToScroll: 1,
         autoplay: true,
         speed: 1900,
