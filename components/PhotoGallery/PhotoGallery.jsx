@@ -8,7 +8,7 @@ import ThePickleballHouse from '@/public/images/the-pickleball-house-logo.webp';
 const PhotoGallery = ({ logos,width }) => {
     const [settings] = useState({
         infinite: true,
-        slidesToShow: width>500 ? 4: 2 ,
+        slidesToShow: 4,
         slidesToScroll: 1,
         autoplay: true,
         speed: 1900,

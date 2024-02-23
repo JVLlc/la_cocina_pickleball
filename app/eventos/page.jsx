@@ -46,24 +46,7 @@ export default function Eventos() {
   const [eventSelected, setEventSelected] = useState([]);
   const event = useRef(null);
   const event2 = useRef(null);
-  const [windowWidth, setWindowWidth] = useState(undefined);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    // Set initial window width
-    handleResize();
-
-    // Event listener for window resize
-    window.addEventListener('resize', handleResize);
-
-    // Cleanup function to remove event listener
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  
 
   const [settings] = useState({
     infinite: true,
@@ -306,7 +289,7 @@ export default function Eventos() {
                   </Parallax>
                 </div>
               </div>
-              <PhotoGallery width={windowWidth}logos={eventSelected.images} />
+              <PhotoGallery width={window.innerWidth}logos={eventSelected.images} />
             </>
           )}
 
