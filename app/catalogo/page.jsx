@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import styles from "./catalogo.module.css";
-import Footer from "@/components/Footer";
+import Footer from "@/components/Footer2";
 import Menu from "@/components/Menu";
 import { ContactUs } from "@/components/ContactUs";
 import ProductCard from "@/components/ProductCard";
@@ -182,6 +182,7 @@ export default function Catalogo() {
   const [rangeSelected, setRangeSelected] = useState([0,0]);
   const [uniqueCategories,setUniqueCategories] = useState([])
   const [uniqueBrands,setUniqueBrands] = useState([])
+  const [loading,setLoading]=useState(true)
 
 
 
@@ -312,7 +313,7 @@ export default function Catalogo() {
         Math.max(...auxProducts.map((product) => product.price)),
       ]);
   
-   
+   setLoading(false)
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -346,9 +347,9 @@ export default function Catalogo() {
 
   return (
     <>
-      {/* <div className={!imagesLoaded ? "imageLoader" :"imageLoader notVisible"}>  <img className="spinner" src="/logo.webp"/>
+      <div className={loading ? "imageLoader" :"imageLoader notVisible"}>  <img className="spinner" src="/logo.webp"/>
       
-      </div> */}
+      </div>
       <div className={styles.main}>
         <Menu />
         <img src="/images/filter.png" onClick={()=>{setFilterOpen(true)}} className={styles.filter} />
@@ -399,7 +400,7 @@ export default function Catalogo() {
           ))}
         </div>
      
-     {uniqueBrands.length >0 && uniqueCategories.length > 0 &&
+     {uniqueBrands.length >0 && uniqueCategories.length > 0 ?
         <div className={styles.productContainer}>
           <div className={styles.productOptions}>
             <h4>{filteredProducts.length} productos</h4>
@@ -415,10 +416,12 @@ export default function Catalogo() {
           {filteredProducts.map((product) => {
             return <ProductCard product={product} getBrandName={getBrandName}  />;
           })}
-        </div>}
+        </div> :        <div className={styles.productContainer}></div>}
 
-        <Footer />
+     
       </div>
+      <Footer position={true} />
+
     </>
   );
 }

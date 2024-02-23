@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import styles from "./contacto.module.css";
-import Footer from "@/components/Footer";
+import Footer from "@/components/Footer2";
 import Menu from "@/components/Menu";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -78,6 +78,7 @@ export default function Contacto() {
   };
 
   return (
+    <>
     <div className={styles.main}>
       <ToastContainer
         position="top-right"
@@ -168,9 +169,11 @@ export default function Contacto() {
           </button>
         </div>
       </form>
-      <Footer/>
+   
       
     </div>
+    <Footer/>
+  </>
     
   );
 }

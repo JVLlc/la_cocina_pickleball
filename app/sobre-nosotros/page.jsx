@@ -330,8 +330,8 @@ if (index % 2 === 1) {
 
 
       </div>
-      <ContactUs color={'pink'} zIndex={'bottom'} footer={true}/>
-      <Footer position={true}/>
+      <ContactUs color={'pink'} zIndex={'bottom'} />
+      {/* <Footer position={true}/> */}
       </div>
    
       </Parallax>

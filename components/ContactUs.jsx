@@ -10,7 +10,7 @@ export function ContactUs({ color, title,zIndex,footer,transparent }) {
         {title ?? "¿Quieres llevar el Pickleball a tu país? Seremos tus mejores aliados."}
       </h1>
       <Link href="/contacto">
-          <button>Contactanos</button>
+          <button>contáctanos</button>
       </Link>
       {!footer &&
       <Footer />}

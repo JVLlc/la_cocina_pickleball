@@ -62,7 +62,7 @@ function ScrollSection() {
           <HomeCard route={'/eventos'} position={'first'} image={"./images/1.webp"} imageHover={"./images/2.webp"} title={"Eventos"}/>
           </div>
           <div className="scroll-section">
-          <HomeCard route={'/catalogo'} position={'middle'} image={"./images/4.webp"} imageHover={"./images/3.webp"} title={"Catalogo"}/>
+          <HomeCard route={'/catalogo'} position={'middle'} image={"./images/4.webp"} imageHover={"./images/3.webp"} title={"Catálogo"}/>
           </div>
           <div className="scroll-section">
          

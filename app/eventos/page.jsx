@@ -46,7 +46,25 @@ export default function Eventos() {
   const [eventSelected, setEventSelected] = useState([]);
   const event = useRef(null);
   const event2 = useRef(null);
-  
+  const [windowWidth, setWindowWidth] = useState(undefined);
+  const [loading,setLoading]=useState(true)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // Set initial window width
+    handleResize();
+
+    // Event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup function to remove event listener
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const [settings] = useState({
     infinite: true,
@@ -88,7 +106,9 @@ export default function Eventos() {
         let sortedProducts= auxPlayers.filter((event)=>{return new Date(event.date_of_event.toDate()) >= new Date() })
         setEventsFiltered(sortedProducts)
       }
+      setLoading(false)
     } catch (error) {
+      setLoading(false)
       console.error("Error fetching data:", error);
     }
   };
@@ -199,7 +219,7 @@ export default function Eventos() {
     
     
     } catch (error) {
-      console.error('Invalid date:', date);
+      // console.error('Invalid date:', date);
       return '';
     }
   };
@@ -245,9 +265,9 @@ export default function Eventos() {
   }
   return (
     <ReactLenis root options={{ lerp: 0.1 }}>
-      {/* <div className={!imagesLoaded ? "imageLoader" :"imageLoader notVisible"}>  <img className="spinner" src="/logo.webp"/>
+      <div className={loading ? "imageLoader" :"imageLoader notVisible"}>  <img className="spinner" src="/logo.webp"/>
       
-         </div> */}
+         </div>
       <div className={styles.main}>
         <div className={styles.grafitti}>
           <img src="/images/grafitti-blue.png" />
@@ -289,12 +309,12 @@ export default function Eventos() {
                   </Parallax>
                 </div>
               </div>
-              <PhotoGallery width={window.innerWidth}logos={eventSelected.images} />
+              <PhotoGallery width={windowWidth} logos={eventSelected.images} />
             </>
           )}
 
           <div className="min-h-screen relative">
-          <Calendar events={eventsByDate} mainEvents={events} />
+          <Calendar events={eventsByDate} mainEvents={events} width={windowWidth} />
           </div>
           <div ref={event2}></div>
           <div className={`min-h-screen relative ${styles.agenda}`}>
@@ -353,9 +373,10 @@ export default function Eventos() {
       
         </div>
 
-        <ContactUs color={"blue"} transparent={"transparent"} zIndex={"bottom"} footer={true} />
-        <Footer position={true} />
+        <ContactUs color={"blue"} transparent={"transparent"} zIndex={"bottom"}  />
+   
       </div>
+      {/* <Footer position={true} /> */}
     </ReactLenis>
   );
 }

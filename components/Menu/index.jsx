@@ -21,7 +21,7 @@ export default function Menu({logo}) {
 <div className={open ? `${styles.menuContainer} ${styles.menuContainerOpen}`: `${styles.menuContainer} ${styles.menuContainerClose}`}>
     <h2 className={styles.aboutUs} onClick={()=>{router.push('/sobre-nosotros')}} >Sobre Nosotros</h2>
     <h2 className={styles.events} onClick={()=>{router.push('/eventos')}}>Eventos</h2>
-    <h2 className={styles.catalogue} onClick={()=>{router.push('/catalogo')}}>Catalogo</h2>
+    <h2 className={styles.catalogue} onClick={()=>{router.push('/catalogo')}}>Catálogo</h2>
     <h2 className={styles.contact} onClick={()=>{router.push('/contacto')}}>Contacto</h2>
 
 </div>

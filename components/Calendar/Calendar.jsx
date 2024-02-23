@@ -6,7 +6,7 @@ import { collection, getDocs, doc, getDoc,where, collectionGroup } from "firebas
 import { faArrowLeft,faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Reveal } from '../Reveal';
-const Calendar = ({ events,mainEvents }) => {
+const Calendar = ({ events,mainEvents,width }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const goToNextMonth = () => {
@@ -21,7 +21,8 @@ const Calendar = ({ events,mainEvents }) => {
   const endOfMonthDate = endOfMonth(currentDate);
   const daysInMonth = eachDayOfInterval({ start: startOfMonthDate, end: endOfMonthDate });
 
-  const weekdays = window.innerWidth > 500 ? ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'] : ['D', 'L', 'M', 'M', 'J', 'V', 'S'];
+const weekdays = width != undefined? width >500  ? ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'] : ['D', 'L', 'M', 'M', 'J', 'V', 'S']:['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'] ;
+
 
   const months = [
     'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
