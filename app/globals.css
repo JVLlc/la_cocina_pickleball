@@ -298,8 +298,23 @@ button.disabledButton:focus {
   position: absolute;
  }
 
+ .header-page2 {
+  line-height: 1.5;
+  left: 10rem;
+  font-size: 4rem;
+  color: white;
+  transition: all 0.5s;
+  top: 0rem;
+  margin-top: 5rem;
+  margin-left: 10rem;
+
+ }
+
+ .transparent{
+  background-color: transparent;
+ }
  .secondary-header {
-  background-color: #373737;
+
   font-size: 4rem !important;
   color: white;
   transition: all 0.5s;
@@ -440,4 +455,12 @@ width: 60vw;
     font-size: 2rem !important;
     margin-left: 1.25rem;
   }
+
+  .header-page2 {
+  
+    font-size: 3.5rem;
+    margin-left: 2rem;
+  
+   }
+  
  }

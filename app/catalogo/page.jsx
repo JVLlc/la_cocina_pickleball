@@ -402,7 +402,7 @@ export default function Catalogo() {
      {uniqueBrands.length >0 && uniqueCategories.length > 0 &&
         <div className={styles.productContainer}>
           <div className={styles.productOptions}>
-            <h4>{products1.length} productos</h4>
+            <h4>{filteredProducts.length} productos</h4>
             <div>
             <select value={sort} onChange={(e)=>{setSort(e.target.value)}}>
               <option value={'default'}>Relevancia (default)</option>

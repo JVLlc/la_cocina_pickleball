@@ -19,6 +19,15 @@
 
  }
 
+ .eventoItem.selected {
+    color: white;
+     box-shadow: 
+       inset 0 6rem 0 0 #00b8d2,
+       inset 0  0 0 #00b8d2;
+       border-bottom: 0.2rem solid #00b8d2; 
+  
+   }
+
  .eventoItem:focus{
     background-color: transparent;
     color: #b9b9b9;
@@ -40,6 +49,18 @@
     transition: all 0.5s;
     visibility: hidden;
     opacity: 0;
+ }
+
+ .eventoItem.selected + img{
+    width: 20vw;
+    height: 25vw;
+    object-fit: cover;
+    top: -4.2rem;
+    left: 5rem;
+    position: absolute;
+    transition: all 0.5s;
+    visibility: visible;
+    opacity: 1;
  }
 
  .eventoItem:hover + img{
@@ -72,6 +93,14 @@
         top: -120vw;
 
     }
+
+    .eventoItem.selected + img{
+      width: 80vw;
+      height: 100vw;
+      left: 2rem;
+      top: -120vw;
+
+  }
 
     .eventoItem:hover + img{
         height: 100vw;

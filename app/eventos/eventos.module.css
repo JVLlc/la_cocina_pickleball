@@ -1,6 +1,6 @@
 .main{
     width: 100%;
-    height: 100%;
+    height: fit-content;
     min-height: 100vh;
    position: relative;
    overflow-x: hidden;
@@ -10,11 +10,164 @@
     top: 18rem;
 }
 
+.eventoContentText{
+    color: white;
+}
+.grafitti{
+    position: fixed;
+    width: 250vw;
+   
+
+}
+
+.grafitti img{
+    width: 150vw;
+    object-fit: fill;
+}
+
+
+.agenda{
+    padding: 2rem;
+  
+}
+
+.filter{
+    display: flex;
+    flex-direction: row;
+}
+
+.filter h4{
+    text-transform: uppercase;
+    color: white;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+ padding-left: 0;
+    transition: all 0.5s;
+    margin-right: 2rem;
+    opacity: 0.7;
+    cursor: pointer;
+
+}
+
+.filter h4:hover{
+
+    opacity:1;
+
+
+}
+
+.filter h4.selected{
+
+    opacity:1;
+
+
+}
+
+.eventsContainer{
+  
+    width: 100%;
+    height: fit-content;
+    margin-top: 3rem;
+}
+
+.eventContainer .imageCarousel{
+    width: 15rem;
+    max-height: 100%;
+    height: 15rem; 
+    overflow: hidden;
+}
+
+.pages{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    margin-top: 5rem;
+    overflow-x: hidden;
+    align-items: center;
+
+}
+
+.pages h2{
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    margin: 0 1rem;
+    opacity: 0.6;
+    transition: all 0.5s;
+}
+
+
+.pages h2.selected{
+    opacity: 1;
+}
+.pages h2:hover{
+    opacity: 1;
+
+}
+
+.pages .arrow{
+color: white;
+width: 2rem;
+font-size: 1.5rem;
+opacity: 0.6;
+transition: all 0.5s;
+cursor: pointer;
+}
+
+.pages .arrow:hover{
+    opacity: 1;
+}
+
+.eventContainer{
+
+    width: 100%;
+    height: 15rem; 
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.eventContainer img{
+    width: 25rem;
+    object-fit: cover;
+}
+
+.eventContainer .content{
+    padding-left: 1rem;
+    width: 60%;
+   
+}
+
+.eventContainer .content h2{
+   font-size: 1.5rem;
+   color: white;
+   text-transform: uppercase;
+   margin-bottom: 1rem;
+}
+
+.eventContainer .content h3{
+    font-size: 0.8rem;
+    color: white;
+    text-transform: uppercase;
+   opacity: 0.8;
+ }
+
+ .eventContainer h5{
+    text-align: right;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: #00b8d2;
+ }
+
 @media  (max-width: 500px){
 
     .eventos{
-        top: 15rem;
-        align-items: flex-end;
+        top: 40rem;
+        align-items: flex-start;
     }
 
     .eventoContent{
@@ -30,6 +183,7 @@
         margin-left: 0 !important;
         width: 100% !important;
         height: 30vh;
+        
 
     }
 
@@ -45,4 +199,127 @@
         margin-left: 1.25rem;
         margin-top: 8rem;
     }
+
+    .grafitti{
+        position: fixed;
+        width: 250vw;
+       
+    
+    }
+    
+    .grafitti img{
+        width: 250vw;
+        object-fit: fill;
+    }
+
+    .agenda{
+        padding: 20px;
+      
+    }
+    
+    
+    .filter h4{
+     
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
+        margin-right: 1rem;
+    
+    }
+    
+
+    
+    
+    .eventContainer .imageCarousel{
+        width: 25rem;
+        max-height: 100%;
+        height: 15rem; 
+        overflow: hidden;
+    }
+    
+    .pages{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+        margin-top: 5rem;
+        overflow-x: hidden;
+        align-items: center;
+    
+    }
+    
+    .pages h2{
+        font-size: 0.85rem;
+        color: white;
+        cursor: pointer;
+        margin: 0 1rem;
+        opacity: 0.6;
+        transition: all 0.5s;
+    }
+    
+    
+    .pages h2.selected{
+        opacity: 1;
+    }
+    .pages h2:hover{
+        opacity: 1;
+    
+    }
+    
+    .pages .arrow{
+    color: white;
+    width: 2rem;
+    font-size: 1rem;
+    opacity: 0.6;
+    transition: all 0.5s;
+    cursor: pointer;
+    }
+    
+    .pages .arrow:hover{
+        opacity: 1;
+    }
+    
+    .eventContainer{
+    
+        width: 100%;
+        height: 15rem; 
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+    }
+    
+    .eventContainer img{
+        width: 25rem;
+        object-fit: cover;
+    }
+    
+    .eventContainer .content{
+        padding-left: 1rem;
+        width: 40%;
+       
+    }
+    
+    .eventContainer .content h2{
+       font-size: 0.85rem;
+       color: white;
+       text-transform: uppercase;
+       margin-bottom: 0.5rem;
+    }
+    
+    .eventContainer .content h3{
+        font-size: 0.85rem;
+        color: white;
+        text-transform: uppercase;
+       opacity: 0.8;
+     }
+    
+     .eventContainer h5{
+        text-align: right;
+        color: white;
+        text-transform: uppercase;
+        font-size: 0.6rem;
+        color: #00b8d2;
+     }
+    
 }

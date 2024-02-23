@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@studio-freight/lenis": "^1.0.29",
     "@studio-freight/react-lenis": "^0.0.38",
     "chart.js": "^4.4.1",
