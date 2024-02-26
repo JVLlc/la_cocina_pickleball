@@ -13,7 +13,7 @@ export async function POST(req , res) {
     const parsedBody = JSON.parse(body);
     const { data, error } = await resend.emails.send({
       from: `${parsedBody.name} <onboarding@resend.dev>`,
-      to: ['juanlopezlmg@gmail.com'],
+      to: ['info@deporteslacocina.com'],
       subject: `${parsedBody.name} quiere saber mas sobre La Cocina Pickleball`,
       react: EmailTemplate({ name: parsedBody.name, email: parsedBody.email, message: parsedBody.message }),
     });
