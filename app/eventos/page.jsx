@@ -331,7 +331,7 @@ export default function Eventos() {
                 <div className={styles.eventContainer}>
                 {/* <img src={event.banner} /> */}
                 <div className={styles.imageCarousel}>
-       
+       {event.images.length>0 ?
                 <Slider {...settings}>
                     {event.images.map((logo, index) => (
                         <div key={index} className="container-gallery">
@@ -341,6 +341,8 @@ export default function Eventos() {
                         </div>
                     ))}
                 </Slider>
+                : 
+                <img src={ event.banner} alt='logo' />}
         
                 </div>
                 <div className={styles.content}>
