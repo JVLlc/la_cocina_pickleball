@@ -213,9 +213,9 @@ export default function Eventos() {
   const getEventName = (event) => {
     try {
   
-      const mainEvent = events.find((event2) => event.event.id==event2.id);
+    
 
-      return event ? mainEvent.name+" - "+ event.name : "";
+      return event ? event.name : "";
     
     
     } catch (error) {
@@ -348,7 +348,7 @@ export default function Eventos() {
                   <h3>{event.description}</h3>
                 </div>
 
-<h5>{format(event.date_of_event.toDate(), 'dd/MM/yyyy')}<br/>{event.date_of_event.toDate().toLocaleString('en-US', { hour: 'numeric',minute: 'numeric', hour12: true })}</h5>
+<h5>{format(event.date_of_event.toDate(), 'dd/MM/yyyy')}<br/>{event.date_of_event.toDate().toLocaleString('en-US', { hour: 'numeric',minute: 'numeric', hour12: true }) == "12:00 AM"? "":event.date_of_event.toDate().toLocaleString('en-US', { hour: 'numeric',minute: 'numeric', hour12: true })}</h5>
               </div>
               </Reveal>}
               })}

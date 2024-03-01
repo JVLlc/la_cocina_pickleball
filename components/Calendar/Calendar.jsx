@@ -50,9 +50,8 @@ const weekdays = width != undefined? width >500  ? ['Domingo', 'Lunes', 'Martes'
 
       const event = events.find((event) => format(event.date_of_event.toDate(), 'dd/MM/yyyy') === format(eventDate, 'dd/MM/yyyy'));
 
-      const mainEvent = mainEvents.find((event2) => event.event.id==event2.id);
 
-      return event ? mainEvent.name+" - "+ event.name : "";
+      return event ?  event.name : "";
     
     
     } catch (error) {
@@ -61,6 +60,7 @@ const weekdays = width != undefined? width >500  ? ['Domingo', 'Lunes', 'Martes'
     }
   };
 
+  console.log('main event',events)
   return (
     <Reveal>
     <div className={styles.calendar}>
